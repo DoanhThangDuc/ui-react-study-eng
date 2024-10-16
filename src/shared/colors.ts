@@ -1,0 +1,1 @@
+export const seBlack = '#000000';

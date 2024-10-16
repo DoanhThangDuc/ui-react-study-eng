@@ -1,3 +1,11 @@
+'use client';
+import { NavBar } from '../components/NavBar/NavBar';
+import {sc} from './../styles/HomePageLayout.style';
+
 export default function HomePage() {
-  return <h1>Home</h1>;
+  return (
+    <sc.Container>
+      <NavBar />
+    </sc.Container>
+  );
 }
