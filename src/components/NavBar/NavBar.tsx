@@ -1,5 +1,3 @@
-'use client';
-
 import { sc } from './NavBar.styled';
 export function NavBar() {
   return (
@@ -10,7 +8,40 @@ export function NavBar() {
         </sc.TrialContent>
       </sc.TrialContainer>
 
-      <sc.NavBarContainer/>
+      <sc.NavigationContainer>
+        <sc.LogoContainer>
+          <sc.Logo/>
+          <sc.CompanyName>
+          EnglishStudyHub
+          </sc.CompanyName>
+        </sc.LogoContainer>
+
+        <sc.Navigators>
+          <sc.NavigatorItem>
+          IELTS Course
+          </sc.NavigatorItem>
+
+          <sc.NavigatorItem>
+          TOEIC Course
+          </sc.NavigatorItem>
+
+          <sc.NavigatorItem>
+          Business English Course
+          </sc.NavigatorItem>
+
+          <sc.NavigatorItem>
+          Grammar Course
+          </sc.NavigatorItem>
+
+        </sc.Navigators>
+
+        <sc.ButtonsContainer>
+          <sc.LoginBtn>Log in</sc.LoginBtn>
+          <sc.StartLearningBtn>Start learning</sc.StartLearningBtn>
+        </sc.ButtonsContainer>
+
+      </sc.NavigationContainer>
+
     </sc.Container>
   );
 }
