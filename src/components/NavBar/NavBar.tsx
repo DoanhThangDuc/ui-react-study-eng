@@ -15,7 +15,7 @@ export function NavBar() {
           <sc.LogoContainer>
             <sc.Logo/>
             <sc.CompanyName>
-          EnglishStudyHub
+          Eng-Alien
             </sc.CompanyName>
           </sc.LogoContainer>
 

@@ -53,17 +53,40 @@ export namespace sc {
   `;
 
   export const LogoContainer = styled.div`
-    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   `;
-  export const Logo = styled.div``;
-  export const CompanyName = styled.p``;
+  export const Logo = styled.div`
+    width: 50px;
+    height: 50px;
+    background: url("../images/logo.png") center no-repeat;
+    background-size: contain;
+    border: none;
+  `;
+  export const CompanyName = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: ${seFontFamilyDefault};
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    color: ${seLust};
+  `;
   export const Navigators = styled.div`
     display: flex;
     justify-content: "center";
     gap: 10px;
   `;
-  export const NavigatorItem = styled.p`
-    max-width: 135px;
+  export const NavigatorItem = styled.div`
+    max-width: 80px;
+    height: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
     font-family: ${seFontFamilyDefault};
     font-size: 16px;
     color: ${seRickBlack};
