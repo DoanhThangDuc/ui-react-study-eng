@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { seFontFamilyDefault } from '../../shared/constants';
+import { seFontFamilyDefault } from '../../shared/fonts';
+import { seLust, seRickBlack, seWhite } from '../../shared/colors';
 
 export namespace sc {
   export const Container = styled.div`
@@ -9,10 +10,11 @@ export namespace sc {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   `;
 
   export const Content = styled.div`
-    /* max-width: 1400px; */
+    width: 1440px;
   `;
 
   export const TrialContainer = styled.div`
@@ -22,26 +24,27 @@ export namespace sc {
 
     justify-content: center;
     align-items: center;
-    background-color: #E92E11;
+    background-color: ${seLust};
   `;
 
  export const TrialContent = styled.p`
     font-family: ${seFontFamilyDefault};
     font-weight: bold;
 
-    color: #FFFFFF;
+    color: ${seWhite};
     font-size: 16px;
   `;
 
-  export const NavBarContainer = styled.div`
+   export const NavigationContainer = styled.div`
     width: 100%;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 2px 2px 0px;
+  `;
 
-    border: 1px solid black;
-`;
-
-  export const NavigationContainer = styled.div`
-    width: 100%;
+  export const NavBarContent = styled.div`
+    width: 1440px;
     height: 73px;
     display: flex;
 
@@ -59,7 +62,12 @@ export namespace sc {
     justify-content: "center";
     gap: 10px;
   `;
-  export const NavigatorItem = styled.div``;
+  export const NavigatorItem = styled.p`
+    max-width: 135px;
+    font-family: ${seFontFamilyDefault};
+    font-size: 16px;
+    color: ${seRickBlack};
+  `;
   export const ButtonsContainer = styled.div`
     display: flex;
     gap: 10px;
@@ -73,11 +81,11 @@ export namespace sc {
     min-width: 80px;
     padding: 0 10px;
 
-    border: 1px solid #030303;
+    border: 1px solid ${seRickBlack};
     border-radius: 24px;
 
-    font-family: "Roboto Condensed";  
-    color: #030303;
+    font-family: ${seFontFamilyDefault};  
+    color: ${seRickBlack};
   `;
   export const StartLearningBtn = styled.div`
     display: flex;
@@ -90,8 +98,8 @@ export namespace sc {
 
     border-radius: 24px;
 
-    color: #FFFFFF;
-    font-family: "Roboto Condensed";  
-    background-color: #E92E11;
+    color: ${seWhite};
+    font-family: ${seFontFamilyDefault};  
+    background-color: ${seLust};
   `;
 }

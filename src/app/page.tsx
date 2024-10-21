@@ -6,6 +6,9 @@ export default function HomePage() {
   return (
     <sc.Container>
       <NavBar />
+      <sc.ContentContainer>
+
+      </sc.ContentContainer>
     </sc.Container>
   );
 }

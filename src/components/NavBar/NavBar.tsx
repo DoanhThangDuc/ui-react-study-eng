@@ -1,4 +1,5 @@
 import { sc } from './NavBar.styled';
+
 export function NavBar() {
   return (
     <sc.Container>
@@ -9,39 +10,41 @@ export function NavBar() {
       </sc.TrialContainer>
 
       <sc.NavigationContainer>
-        <sc.LogoContainer>
-          <sc.Logo/>
-          <sc.CompanyName>
+        <sc.NavBarContent>
+
+          <sc.LogoContainer>
+            <sc.Logo/>
+            <sc.CompanyName>
           EnglishStudyHub
-          </sc.CompanyName>
-        </sc.LogoContainer>
+            </sc.CompanyName>
+          </sc.LogoContainer>
 
-        <sc.Navigators>
-          <sc.NavigatorItem>
+          <sc.Navigators>
+            <sc.NavigatorItem>
           IELTS Course
-          </sc.NavigatorItem>
+            </sc.NavigatorItem>
 
-          <sc.NavigatorItem>
+            <sc.NavigatorItem>
           TOEIC Course
-          </sc.NavigatorItem>
+            </sc.NavigatorItem>
 
-          <sc.NavigatorItem>
+            <sc.NavigatorItem>
           Business English Course
-          </sc.NavigatorItem>
+            </sc.NavigatorItem>
 
-          <sc.NavigatorItem>
+            <sc.NavigatorItem>
           Grammar Course
-          </sc.NavigatorItem>
+            </sc.NavigatorItem>
 
-        </sc.Navigators>
+          </sc.Navigators>
 
-        <sc.ButtonsContainer>
-          <sc.LoginBtn>Log in</sc.LoginBtn>
-          <sc.StartLearningBtn>Start learning</sc.StartLearningBtn>
-        </sc.ButtonsContainer>
+          <sc.ButtonsContainer>
+            <sc.LoginBtn>Log in</sc.LoginBtn>
+            <sc.StartLearningBtn>Start learning</sc.StartLearningBtn>
+          </sc.ButtonsContainer>
+        </sc.NavBarContent>
 
       </sc.NavigationContainer>
-
     </sc.Container>
   );
 }
