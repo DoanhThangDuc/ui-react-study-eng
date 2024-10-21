@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { seFontFamilyDefault } from '../../shared/fonts';
 import { seLust, seRickBlack, seWhite } from '../../shared/colors';
 
 export namespace sc {
@@ -28,7 +27,6 @@ export namespace sc {
   `;
 
  export const TrialContent = styled.p`
-    font-family: ${seFontFamilyDefault};
     font-weight: bold;
 
     color: ${seWhite};
@@ -46,6 +44,7 @@ export namespace sc {
   export const NavBarContent = styled.div`
     width: 1440px;
     height: 73px;
+    padding: 0px 20px;
     display: flex;
 
     justify-content: space-between;
@@ -56,6 +55,11 @@ export namespace sc {
     display: flex;
     flex-direction: row;
     gap: 10px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8
+    }
   `;
   export const Logo = styled.div`
     width: 50px;
@@ -69,7 +73,6 @@ export namespace sc {
     justify-content: center;
     align-items: center;
 
-    font-family: ${seFontFamilyDefault};
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
@@ -87,9 +90,13 @@ export namespace sc {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    font-family: ${seFontFamilyDefault};
     font-size: 16px;
     color: ${seRickBlack};
+
+    &:hover {
+      cursor: pointer;
+      color: ${seLust}
+    }
   `;
   export const ButtonsContainer = styled.div`
     display: flex;
@@ -107,8 +114,13 @@ export namespace sc {
     border: 1px solid ${seRickBlack};
     border-radius: 24px;
 
-    font-family: ${seFontFamilyDefault};  
     color: ${seRickBlack};
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px, rgba(0, 0, 0, 0.1) 0px 2px 3px 0px;
+      opacity: 0.7;
+    }
   `;
   export const StartLearningBtn = styled.div`
     display: flex;
@@ -122,7 +134,10 @@ export namespace sc {
     border-radius: 24px;
 
     color: ${seWhite};
-    font-family: ${seFontFamilyDefault};  
     background-color: ${seLust};
+
+    &:hover {
+      cursor: pointer;
+    }
   `;
 }

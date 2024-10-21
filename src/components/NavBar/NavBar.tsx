@@ -11,31 +11,25 @@ export function NavBar() {
 
       <sc.NavigationContainer>
         <sc.NavBarContent>
-
           <sc.LogoContainer>
             <sc.Logo/>
             <sc.CompanyName>
           Eng-Alien
             </sc.CompanyName>
           </sc.LogoContainer>
-
           <sc.Navigators>
             <sc.NavigatorItem>
           IELTS Course
             </sc.NavigatorItem>
-
             <sc.NavigatorItem>
           TOEIC Course
             </sc.NavigatorItem>
-
             <sc.NavigatorItem>
           Business English Course
             </sc.NavigatorItem>
-
             <sc.NavigatorItem>
           Grammar Course
             </sc.NavigatorItem>
-
           </sc.Navigators>
 
           <sc.ButtonsContainer>
