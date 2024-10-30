@@ -4,7 +4,14 @@
 - create navigation bar (done)
 
 - creating home page (doing)
+- create button generic 
+- setup userTranslation
 - implement fonts mechanism for the application
 
+- investigate redux constructure
+
 - investigate first Desktop or Mobile
+- investigate visual testing
+- investigate unit testing
+- investigate feature flaging store
 - implement stores for each pages
