@@ -1,11 +1,17 @@
 'use client';
-import { HeathBenefit } from '../components/HeathBenefit/HeathBenefit';
-import { NavBar } from '../components/NavBar/NavBar';
-import { UpgradePlan } from '../components/UpgradePlan/UpgradePlan';
-import { UserQuote } from '../components/UserQuote/UserQuote';
-import {sc} from './../styles/HomePageLayout.style';
+import { useTranslation } from 'react-i18next';
+import { HeathBenefit } from '../../components/HeathBenefit/HeathBenefit';
+import { NavBar } from '../../components/NavBar/NavBar';
+import { UpgradePlan } from '../../components/UpgradePlan/UpgradePlan';
+import { UserQuote } from '../../components/UserQuote/UserQuote';
+import {sc} from '../../styles/HomePageLayout.style';
 
-export default function HomePage() {
+export default function LocalePage() {
+  const { t , ready} = useTranslation('homepage');
+  if (!ready) {
+    return <div>Loading translations...</div>;
+  }
+
   return (
     <sc.Container>
       <NavBar />
@@ -14,7 +20,7 @@ export default function HomePage() {
           <sc.BookLogo />
           <sc.HeaderTitleContainer>
             <sc.HeaderTitle>
-          Improve your English <br/> skills with interactive learning sessions
+              {t('header-title')}
             </sc.HeaderTitle>
           </sc.HeaderTitleContainer>
           <sc.JoinBtn>Join now</sc.JoinBtn>
