@@ -23,7 +23,7 @@ export default function LocalePage() {
               {t('header-title')}
             </sc.HeaderTitle>
           </sc.HeaderTitleContainer>
-          <sc.JoinBtn>Join now</sc.JoinBtn>
+          <sc.JoinBtn>{t('join-btn')}</sc.JoinBtn>
         </sc.HeaderContainer>
       </sc.ContentContainer>
 
@@ -35,7 +35,7 @@ export default function LocalePage() {
             <HeathBenefit />
           </sc.GoodForHeath>
           <sc.ContentTitle>
-          Join EnglishStudyHub community and connect with more than 1M users
+            {t('good-for-health-title')}
           </sc.ContentTitle>
 
           <sc.HeaderQuoteContainer>
@@ -48,7 +48,7 @@ export default function LocalePage() {
       </sc.GoodForHealthSection>
 
       <sc.ContentTitle>
-      Choose your plan
+        {t('plan-title')}
       </sc.ContentTitle>
 
       <sc.PlanSection>

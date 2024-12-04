@@ -1,11 +1,18 @@
+import { useTranslation } from 'react-i18next';
 import { sc } from './NavBar.styled';
 
 export function NavBar() {
+
+  const { t , ready} = useTranslation('navbar');
+  if (!ready) {
+    return <div>Loading translations...</div>;
+  }
+
   return (
     <sc.Container>
       <sc.TrialContainer>
         <sc.TrialContent>
-            Start your free trial now!
+          {t('trial-content')}
         </sc.TrialContent>
       </sc.TrialContainer>
 
@@ -14,27 +21,27 @@ export function NavBar() {
           <sc.LogoContainer>
             <sc.Logo/>
             <sc.CompanyName>
-          Eng-Alien
+              {t('company-name')}
             </sc.CompanyName>
           </sc.LogoContainer>
           <sc.Navigators>
             <sc.NavigatorItem>
-          IELTS Course
+              {t('ielts-course')}
             </sc.NavigatorItem>
             <sc.NavigatorItem>
-          TOEIC Course
+              {t('toeic-course')}
             </sc.NavigatorItem>
             <sc.NavigatorItem>
-          Business English Course
+              {t('bussiness-course')}
             </sc.NavigatorItem>
             <sc.NavigatorItem>
-          Grammar Course
+              {t('grammar-course')}
             </sc.NavigatorItem>
           </sc.Navigators>
 
           <sc.ButtonsContainer>
-            <sc.LoginBtn>Log in</sc.LoginBtn>
-            <sc.StartLearningBtn>Start learning</sc.StartLearningBtn>
+            <sc.LoginBtn>{t('login-btn')}</sc.LoginBtn>
+            <sc.StartLearningBtn>{t('start-btn')}</sc.StartLearningBtn>
           </sc.ButtonsContainer>
         </sc.NavBarContent>
 
