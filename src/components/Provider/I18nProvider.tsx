@@ -14,7 +14,6 @@ export default function I18nProvider({
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    // Ensure the language is set and the namespace is loaded
     i18n.changeLanguage(locale).then(() => {
       i18n.loadNamespaces('homepage').then(() => {
         setIsInitialized(true);
@@ -23,7 +22,7 @@ export default function I18nProvider({
   }, [locale]);
 
   if (!isInitialized) {
-    return <div>Loading...</div>; // Prevent rendering until i18n is ready
+    return <div>Loading...</div>;
   }
 
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;

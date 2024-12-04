@@ -1,6 +1,7 @@
 import { dir } from '../../i18n/i18n-config';
 import { montserrat } from '../../assets/fonts';
 import I18nProvider from '../../components/Provider/I18nProvider';
+import StoreProvider from '../../components/Provider/StoreProvider';
 
 export const metadata = {
   title: 'Eng-Alien',
@@ -31,7 +32,9 @@ export default function RootLayout({
           overflowX: 'hidden',
         }}
       >
-        <I18nProvider locale={currentLocale}>{children}</I18nProvider>
+        <StoreProvider>
+          <I18nProvider locale={currentLocale}>{children}</I18nProvider>
+        </StoreProvider>
       </body>
     </html>
   );
