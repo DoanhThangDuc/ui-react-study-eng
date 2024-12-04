@@ -1,15 +1,21 @@
+'use client';
+
 import { useTranslation } from 'react-i18next';
 import { sc } from './NavBar.styled';
+import { AppDispatch } from '../../lib/store';
+import { useDispatch } from 'react-redux';
+import { onOpenModalLogin } from '../../redux/slices/navSlice';
 
 export function NavBar() {
+  const { t } = useTranslation('navbar');
 
-  const { t , ready} = useTranslation('navbar');
-  if (!ready) {
-    return <div>Loading translations...</div>;
-  }
+  const dispatch: AppDispatch = useDispatch();
 
   return (
-    <sc.Container>
+    <sc.Container
+      aria-label="Navbar"
+      role="region"
+    >
       <sc.TrialContainer>
         <sc.TrialContent>
           {t('trial-content')}
@@ -38,14 +44,19 @@ export function NavBar() {
               {t('grammar-course')}
             </sc.NavigatorItem>
           </sc.Navigators>
-
           <sc.ButtonsContainer>
-            <sc.LoginBtn>{t('login-btn')}</sc.LoginBtn>
-            <sc.StartLearningBtn>{t('start-btn')}</sc.StartLearningBtn>
+            <sc.LoginBtn
+              onClick={() => dispatch(onOpenModalLogin())}
+            >
+              {t('login-btn')}
+            </sc.LoginBtn>
+            <sc.StartLearningBtn>
+              {t('start-btn')}
+            </sc.StartLearningBtn>
           </sc.ButtonsContainer>
         </sc.NavBarContent>
-
       </sc.NavigationContainer>
+
     </sc.Container>
   );
 }

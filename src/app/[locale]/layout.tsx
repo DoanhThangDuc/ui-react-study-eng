@@ -33,7 +33,9 @@ export default function RootLayout({
         }}
       >
         <StoreProvider>
-          <I18nProvider locale={currentLocale}>{children}</I18nProvider>
+          <I18nProvider locale={currentLocale}>
+            {children}
+          </I18nProvider>
         </StoreProvider>
       </body>
     </html>
