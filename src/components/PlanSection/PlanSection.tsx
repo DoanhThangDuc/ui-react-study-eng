@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 export namespace sc {
+  export const Container = styled.div``;
   export const ContentTitle = styled.div`
     margin-top: 96px;
     display: flex;

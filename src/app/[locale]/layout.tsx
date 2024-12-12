@@ -1,5 +1,5 @@
 import { dir } from '../../i18n/i18n-config';
-import { montserrat } from '../../assets/fonts';
+import { roboto } from '../../assets/fonts';
 import I18nProvider from '../../components/Provider/I18nProvider';
 import StoreProvider from '../../components/Provider/StoreProvider';
 
@@ -23,7 +23,7 @@ export default function RootLayout({
         <link rel="icon" href="/images/logo.png" />
       </head>
       <body
-        className={montserrat.className}
+        className={roboto.className}
         style={{
           width: '100%',
           display: 'flex',

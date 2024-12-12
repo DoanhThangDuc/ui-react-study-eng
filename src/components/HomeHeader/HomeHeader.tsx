@@ -5,7 +5,10 @@ export function HomeHeader() {
   const { t } = useTranslation('homepage');
 
   return (
-    <sc.ContentContainer>
+    <sc.ContentContainer
+      aria-label="HomeHeader"
+      role="region"
+    >
       <sc.HeaderContainer>
         <sc.BookLogo />
         <sc.HeaderTitleContainer>

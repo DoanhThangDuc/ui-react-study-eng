@@ -1,0 +1,9 @@
+{
+  "modal-login": {
+    "login-title": "Login to start your journey",
+    "login-btn": "Log in",
+    "login-by-facebook-btn": "Continue with Facebook",
+    "login-by-google-btn": "Continue with Google",
+    "need-account": "Need an account? Join English Alien"
+  }
+}

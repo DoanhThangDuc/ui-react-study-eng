@@ -6,7 +6,10 @@ export function PlanSection() {
   const { t } = useTranslation('homepage');
 
   return (
-    <>
+    <sc.Container
+      aria-label="PlanSection"
+      role="region"
+    >
       <sc.ContentTitle>
         {t('plan-title')}
       </sc.ContentTitle>
@@ -16,6 +19,6 @@ export function PlanSection() {
         <UpgradePlan />
         <UpgradePlan />
       </sc.PlanSection>
-    </>
+    </sc.Container>
   );
 }

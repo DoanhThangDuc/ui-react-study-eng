@@ -6,7 +6,10 @@ export function GoodForHealthSection(){
   const { t } = useTranslation('homepage');
 
   return (
-    <sc.GoodForHealthSection>
+    <sc.GoodForHealthSection
+      aria-label="GoodForHealthSection"
+      role="region"
+    >
       <sc.GoodForHealthContainer>
         <sc.GoodForHeath>
           <HeathBenefit />
@@ -16,7 +19,6 @@ export function GoodForHealthSection(){
         <sc.ContentTitle>
           {t('good-for-health-title')}
         </sc.ContentTitle>
-
         <sc.HeaderQuoteContainer>
           <UserQuote />
           <UserQuote />
