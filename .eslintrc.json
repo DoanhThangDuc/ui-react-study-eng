@@ -37,9 +37,24 @@
         "return": "parens-new-line"
       }
     ],
+    "react/jsx-closing-bracket-location": [
+      "error",
+      {
+        "nonEmpty": "after-props", 
+        "selfClosing": "after-props" 
+      }
+    ],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "beforeSelfClosing": "always" 
+      }
+    ],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-unused-vars": "warn",
-    "no-trailing-spaces": "error"
+    "no-trailing-spaces": "error",
+    "@typescript-eslint/no-empty-object-type": "off"
   }
 }

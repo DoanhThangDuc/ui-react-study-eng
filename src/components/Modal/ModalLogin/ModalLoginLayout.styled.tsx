@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { seBlack, seCadetBlue, seDavyGrey, seGunmetal, seLightGray, seSpiroDiscoBall, seWhite } from '../../shared/colors';
+import { seBlack, seCadetBlue, seDavyGrey, seGunmetal, seLightGray, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
 
 export namespace sc {
   export const Container = styled.div`
@@ -107,6 +107,7 @@ export namespace sc {
     padding-top: 110px;
     font-size: 12px;
     font-weight: 500;
+    cursor: pointer;
     color: ${seSpiroDiscoBall};
   `;
 }

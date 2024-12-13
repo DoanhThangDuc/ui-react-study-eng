@@ -8,13 +8,12 @@ export interface HomeLayoutProps {
   renderModal: ()=> React.ReactNode
 }
 export function HomeLayout(props: HomeLayoutProps) {
-  const {renderNavBar, renderHeader, renderBody, renderFooter, renderModal} = props;
+  const { renderNavBar, renderHeader, renderBody, renderFooter, renderModal } = props;
 
   return (
     <sc.HomeLayoutContainer
       arial-layout="HomeLayoutContainer"
-      role="region"
-    >
+      role="region">
       {renderModal()}
       {renderNavBar()}
       {renderHeader()}

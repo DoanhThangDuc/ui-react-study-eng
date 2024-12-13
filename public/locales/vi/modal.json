@@ -1,6 +1,9 @@
 {
   "modal-login": {
-    "login-title": "Đăng nhập",
-    "login-btn": "Đăng nhập"
+    "login-title": "Đăng nhập để bắt đầu hành trình của bạn",
+    "login-btn": "Đăng nhập",
+    "login-by-facebook-btn": "Tiếp tục với Facebook",
+    "login-by-google-btn": "Tiếp tục với Google",
+    "need-account": "Cần một tài khoản? Tham gia English Alien"
   }
 }

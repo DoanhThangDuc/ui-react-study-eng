@@ -1,14 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-
 import { useTranslation } from 'react-i18next';
 import { sc } from './NavBar.styled';
-import { onOpenModalLogin } from '../../redux/slices/navSlice';
-import { ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
-import { Dispatch } from 'react';
 
 export interface NavBarDriver {
-  dispatch: ThunkDispatch<any, undefined, UnknownAction> & Dispatch<UnknownAction>
 }
 
 type NavBarProps = {
@@ -21,8 +15,7 @@ export function NavBar(props: NavBarProps) {
   return (
     <sc.Container
       aria-label="Navbar"
-      role="region"
-    >
+      role="region">
       <sc.TrialContainer>
         <sc.TrialContent>
           {t('trial-content')}
@@ -32,7 +25,7 @@ export function NavBar(props: NavBarProps) {
       <sc.NavigationContainer>
         <sc.NavBarContent>
           <sc.LogoContainer>
-            <sc.Logo/>
+            <sc.Logo />
             <sc.CompanyName>
               {t('company-name')}
             </sc.CompanyName>
@@ -53,8 +46,7 @@ export function NavBar(props: NavBarProps) {
           </sc.Navigators>
           <sc.ButtonsContainer>
             <sc.LoginBtn
-              onClick={() => driver.dispatch(onOpenModalLogin())}
-            >
+              onClick={() => {}}>
               {t('login-btn')}
             </sc.LoginBtn>
             <sc.StartLearningBtn>
