@@ -1,6 +1,7 @@
 'use client';
 import { useTranslation } from 'react-i18next';
 import { sc } from './NavBar.styled';
+import { useModal } from '../../redux/hooks';
 
 export interface NavBarDriver {
 }
@@ -9,8 +10,8 @@ type NavBarProps = {
   driver: NavBarDriver
 }
 export function NavBar(props: NavBarProps) {
-  const { driver } = props;
   const { t } = useTranslation('navbar');
+  const { openModal }= useModal();
 
   return (
     <sc.Container
@@ -44,9 +45,8 @@ export function NavBar(props: NavBarProps) {
               {t('grammar-course')}
             </sc.NavigatorItem>
           </sc.Navigators>
-          <sc.ButtonsContainer>
-            <sc.LoginBtn
-              onClick={() => {}}>
+          <sc.ButtonsContainer onClick={() => openModal()}>
+            <sc.LoginBtn >
               {t('login-btn')}
             </sc.LoginBtn>
             <sc.StartLearningBtn>

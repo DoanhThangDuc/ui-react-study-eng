@@ -6,10 +6,10 @@ const navSlice = createSlice({
     isOpening: false,
   },
   reducers: {
-    onCloseModalLogin: (state) =>{
+    onCloseModalLogin: (state) => {
       state.isOpening = false;
     },
-    onOpenModalLogin: (state) =>{
+    onOpenModalLogin: (state) => {
       state.isOpening = true;
     }
   },

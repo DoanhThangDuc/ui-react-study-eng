@@ -4,7 +4,7 @@ interface ModalSliceDriver {
   isOpen: boolean;
 }
 const initialState: ModalSliceDriver = {
-  isOpen: true,
+  isOpen: false,
 };
 
 const modalSlice = createSlice({
