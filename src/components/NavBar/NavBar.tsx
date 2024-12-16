@@ -13,11 +13,11 @@ export function NavBar() {
     <sc.Container
       aria-label="Navbar"
       role="region">
-      <sc.TrialContainer>
+      {/* <sc.TrialContainer>
         <sc.TrialContent>
           {t('trial-content')}
         </sc.TrialContent>
-      </sc.TrialContainer>
+      </sc.TrialContainer> */}
 
       <sc.NavigationContainer>
         <sc.NavBarContent>
