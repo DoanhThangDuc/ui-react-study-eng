@@ -5,8 +5,8 @@ import { seSpiroDiscoBall, seWhite } from '../../../shared/colors';
 
 export default {
   title: 'Components/Button',
-  component: Button,          
-  args: {                     
+  component: Button,
+  args: {
     driver: {
       type: 'primary',
       dataCy: 'button',
@@ -20,7 +20,7 @@ export default {
       fontWeight: 500,
       disabled: false,
     } as ButtonDriver,
-    children: 'Button',     
+    children: 'Button',
   },
 } as Meta<typeof Button>;
 

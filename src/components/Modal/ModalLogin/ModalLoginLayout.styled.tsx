@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { seBlack, seCadetBlue, seDavyGrey, seGunmetal, seLightGray, seRed, seSpanishGray, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
+import { seBlack, seCadetBlue, seDavyGrey, seGunmetal, seRed, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
 
 export namespace sc {
   export const Container = styled.div`
