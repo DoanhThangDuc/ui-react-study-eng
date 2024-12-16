@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ModalSliceDriver {
   isOpen: boolean;
@@ -11,10 +11,10 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    onOpenModal: (state) => {
+    onOpenModal: (state, action: PayloadAction<number>) => {
       state.isOpen =  true;
     },
-    onCloseModal: (state) => {
+    onCloseModal: (state, action: PayloadAction<number>) => {
       state.isOpen =  false;
     }
   }
