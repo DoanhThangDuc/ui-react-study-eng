@@ -14,7 +14,7 @@ interface IProps extends SEReactProps {
 }
 export function ModalLoginLayout(props: IProps) {
   const { t }= useTranslation('modal');
-  const { driver, renderModalWrapper } = props;
+  const { renderModalWrapper } = props;
 
   return (
     <sc.Container arial-lable="ModalLogin-Container" role="dialog">

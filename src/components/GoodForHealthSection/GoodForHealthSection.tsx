@@ -8,8 +8,7 @@ export function GoodForHealthSection(){
   return (
     <sc.GoodForHealthSection
       aria-label="GoodForHealthSection"
-      role="region"
-    >
+      role="region">
       <sc.GoodForHealthContainer>
         <sc.GoodForHeath>
           <HeathBenefit />

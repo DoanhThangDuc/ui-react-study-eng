@@ -5,11 +5,7 @@ import { useModal } from '../../redux/hooks';
 
 export interface NavBarDriver {
 }
-
-type NavBarProps = {
-  driver: NavBarDriver
-}
-export function NavBar(props: NavBarProps) {
+export function NavBar() {
   const { t } = useTranslation('navbar');
   const { openModal }= useModal();
 

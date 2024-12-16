@@ -30,8 +30,7 @@ export default function RootLayout({
           justifyContent: 'center',
           margin: 0,
           overflowX: 'hidden',
-        }}
-      >
+        }}>
         <StoreProvider>
           <I18nProvider locale={currentLocale}>
             {children}

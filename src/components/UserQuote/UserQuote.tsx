@@ -1,4 +1,4 @@
-import {sc} from './UserQuote.styled';
+import { sc } from './UserQuote.styled';
 export function UserQuote() {
   return (
     <sc.Container>

@@ -1,4 +1,4 @@
-import { Roboto , Montserrat} from 'next/font/google';
+import { Roboto , Montserrat } from 'next/font/google';
 
 export const roboto = Roboto({
   subsets: ['latin'],

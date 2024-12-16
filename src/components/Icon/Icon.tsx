@@ -23,11 +23,6 @@ interface IProps extends SEReactProps {
   driver: IconDriver;
 }
 export function Icon(props: IProps) {
-  const { driver, children } = props;
-
-  const renderIcon = (): void => {
-
-  };
-
+  const {  children } = props;
   return <sc.Container>{children}</sc.Container>;
 }

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import {sc} from './HomeHeader.styled';
+import { sc } from './HomeHeader.styled';
 
 export function HomeHeader() {
   const { t } = useTranslation('homepage');
@@ -7,8 +7,7 @@ export function HomeHeader() {
   return (
     <sc.ContentContainer
       aria-label="HomeHeader"
-      role="region"
-    >
+      role="region">
       <sc.HeaderContainer>
         <sc.BookLogo />
         <sc.HeaderTitleContainer>

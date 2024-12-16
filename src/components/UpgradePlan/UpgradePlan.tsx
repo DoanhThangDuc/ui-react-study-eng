@@ -1,4 +1,4 @@
-import {sc} from './UpgradePlan.styled';
+import { sc } from './UpgradePlan.styled';
 
 export function UpgradePlan() {
   return (

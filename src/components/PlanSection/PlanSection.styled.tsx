@@ -8,8 +8,7 @@ export function PlanSection() {
   return (
     <sc.Container
       aria-label="PlanSection"
-      role="region"
-    >
+      role="region">
       <sc.ContentTitle>
         {t('plan-title')}
       </sc.ContentTitle>

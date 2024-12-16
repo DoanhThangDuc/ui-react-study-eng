@@ -10,7 +10,7 @@ export default function HomePage() {
 
   return (
     <HomeLayout
-      renderNavBar={() => (<NavBar driver={{}} />)}
+      renderNavBar={() => (<NavBar />)}
       renderHeader={() => (<HomeHeader />)}
       renderBody={() => (<GoodForHealthSection />)}
       renderFooter={() => (<PlanSection />)}
