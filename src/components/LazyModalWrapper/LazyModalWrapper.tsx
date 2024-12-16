@@ -3,7 +3,7 @@ import { sc } from './LazyModalWrapper.styled';
 
 export interface ModalDriver {
   isOpen: boolean;
-  closeModal: () => void
+  onCloseModal: () => void
 }
 export const LazyModalWrapper = (props: {
   children: React.ReactNode;
@@ -51,7 +51,7 @@ export const LazyModalWrapper = (props: {
       }}>
       <sc.ModalOverlay
         aria-label="ModalOverlay"
-        onClick={props.driver.closeModal} />
+        onClick={props.driver.onCloseModal} />
       <sc.ModalBody>
         {children}
       </sc.ModalBody>

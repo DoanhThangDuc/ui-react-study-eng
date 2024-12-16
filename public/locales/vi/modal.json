@@ -4,6 +4,12 @@
     "login-btn": "Đăng nhập",
     "login-by-facebook-btn": "Tiếp tục với Facebook",
     "login-by-google-btn": "Tiếp tục với Google",
-    "need-account": "Cần một tài khoản? Tham gia English Alien"
+    "need-account": "Cần một tài khoản? Tham gia English Alien",
+    "email-required": "Email là bắt buộc",
+    "email-invalid": "Email không hợp lệ",
+    "password-required": "Mật khẩu là bắt buộc",
+    "password-length-invalid": "Mật khẩu phải có ít nhất 8 ký tự",
+    "password-special-character": "Mật khẩu phải có ít nhất 1 ký tự đặc biệt",
+    "password-uppercase-character": "Ít nhất 1 chữ cái viết hoa"
   }
 }

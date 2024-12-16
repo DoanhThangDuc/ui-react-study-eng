@@ -24,9 +24,9 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
+const Story: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
+export const Primary = Story.bind({});
 Primary.args = {
   driver: {
     type: 'primary',
@@ -34,7 +34,7 @@ Primary.args = {
     bgColor: seSpiroDiscoBall
   },
 };
-export const Secondary = Template.bind({});
+export const Secondary = Story.bind({});
 Secondary.args = {
   driver: {
     type: 'secondary',
@@ -43,7 +43,7 @@ Secondary.args = {
   },
 };
 
-export const Success = Template.bind({});
+export const Success = Story.bind({});
 Success.args = {
   driver: {
     type: 'success',
@@ -52,7 +52,7 @@ Success.args = {
   },
 };
 
-export const Disabled = Template.bind({});
+export const Disabled = Story.bind({});
 Disabled.args = {
   driver: {
     type: 'primary',

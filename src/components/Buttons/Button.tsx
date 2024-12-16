@@ -74,7 +74,8 @@ export function Button(props: IProps) {
   };
 
   return (
-    <sc.Container margin={driver.margin} className="visual-reg">
+    <sc.Container margin={driver.margin} className="visual-reg"
+      onClick={driver.onClick}>
       {renderButton(<>{children}</>)}
     </sc.Container>
   );

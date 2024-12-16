@@ -4,10 +4,14 @@ import { useModal } from '../../../redux/hooks';
 
 export interface ModalLoginDriver extends ModalDriver {
   emailAddress: string;
-  isEmailValid?: boolean;
-  isPasswordValid?: boolean;
+  emailErrorMessage?: string
+  passwordErrorMessage?: string;
   password: string;
-  onBlur: (payload: any) => void;
+  onEmailBlur: () => void;
+  onPasswordBlur: () => void;
+  onEmailChange:(email: string) => void;
+  onPasswordChange:(password: string) => void;
+  handleSubmitLogin:() => void;
 }
 export function ModalLogin() {
   const store = useModal();

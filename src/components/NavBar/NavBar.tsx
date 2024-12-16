@@ -7,7 +7,7 @@ export interface NavBarDriver {
 }
 export function NavBar() {
   const { t } = useTranslation('navbar');
-  const { openModal }= useModal();
+  const { onOpenModal }= useModal();
 
   return (
     <sc.Container
@@ -35,7 +35,7 @@ export function NavBar() {
               {t('grammar-course')}
             </sc.NavigatorItem>
           </sc.Navigators>
-          <sc.ButtonsContainer onClick={openModal}>
+          <sc.ButtonsContainer onClick={() => onOpenModal()}>
             <sc.LoginBtn >
               {t('login-btn')}
             </sc.LoginBtn>

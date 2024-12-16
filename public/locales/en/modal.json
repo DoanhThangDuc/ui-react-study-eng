@@ -4,6 +4,12 @@
     "login-btn": "Log in",
     "login-by-facebook-btn": "Continue with Facebook",
     "login-by-google-btn": "Continue with Google",
-    "need-account": "Need an account? Join English Alien"
+    "need-account": "Need an account? Join English Alien",
+    "email-required": "Email is required",
+    "email-invalid": "Email is invalid",
+    "password-required": "Password is required",
+    "password-length-invalid": "Password must include at least 8 characters",
+    "password-special-character": "Password must include at least 1 special character",
+    "password-uppercase-character": "At least 1 uppercase"
   }
 }

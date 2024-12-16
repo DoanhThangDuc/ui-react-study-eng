@@ -33,10 +33,13 @@ export function ModalLoginLayout(props: IProps) {
               id="email"
               name="email"
               placeholder='Email'
-              onBlur={driver.onBlur}
-              isEmailValid={driver.isEmailValid} />
-            {!driver.isEmailValid && <sc.ErrorLabel>
-              Email is required
+              onBlur={driver.onEmailBlur}
+              onChange={(input) => {
+                driver.onEmailChange(input.target.value);
+              }}
+              isEmailValid={!driver.emailErrorMessage} />
+            {!!driver.emailErrorMessage && <sc.ErrorLabel>
+              {t(driver.emailErrorMessage)}
             </sc.ErrorLabel>}
 
             <sc.PasswordInput
@@ -44,18 +47,23 @@ export function ModalLoginLayout(props: IProps) {
               id="password"
               name="password"
               placeholder='Password'
-              isPasswordValid={driver.isPasswordValid} />
-            {!driver.isPasswordValid && <sc.ErrorLabel>
-              Password is required
+              isPasswordValid={!driver.passwordErrorMessage}
+              onBlur={driver.onPasswordBlur}
+              onChange={(input) => {
+                driver.onPasswordChange(input.target.value);
+              }} />
+            {!!driver.passwordErrorMessage && <sc.ErrorLabel>
+              {t(driver.passwordErrorMessage)}
             </sc.ErrorLabel>}
 
             <Button
               driver={{
                 type: 'primary',
                 color: seWhite,
-                bgColor: seSpiroDiscoBall
+                bgColor: seSpiroDiscoBall,
+                onClick: driver.handleSubmitLogin
               }}>
-              <sc.LoginBtn>
+              <sc.LoginBtn onClick={driver.handleSubmitLogin}>
                 {t('modal-login.login-btn')}
               </sc.LoginBtn>
             </Button>
