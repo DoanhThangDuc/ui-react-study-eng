@@ -25,8 +25,7 @@ const modalSlice = createSlice({
     onCloseModal: (state) => {
       state.isOpen =  false;
     },
-    onBlurInput: (state, payload) => {
-      console.log('onBlurInput :>>, ', payload);
+    onBlurInput: (state) => {
     }
   }
 });

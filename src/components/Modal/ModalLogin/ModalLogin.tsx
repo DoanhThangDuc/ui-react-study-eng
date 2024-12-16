@@ -7,7 +7,7 @@ export interface ModalLoginDriver extends ModalDriver {
   isEmailValid?: boolean;
   isPasswordValid?: boolean;
   password: string;
-  onBlur: () => void;
+  onBlur: (payload: any) => void;
 }
 export function ModalLogin() {
   const store = useModal();
