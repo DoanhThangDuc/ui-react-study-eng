@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { seLust, seRickBlack, seWhite } from '../../shared/colors';
+import { seLust, seRickBlack, seSpanishGray, seWhite } from '../../shared/colors';
 
 export namespace sc {
   export const Container = styled.div`
@@ -89,7 +89,7 @@ export namespace sc {
     min-width: 80px;
     padding: 0 10px;
 
-    border: 1px solid ${seRickBlack};
+    border: 1px solid ${seSpanishGray};
     border-radius: 24px;
 
     color: ${seRickBlack};

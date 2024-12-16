@@ -11,7 +11,6 @@ export function ButtonPrimary(props: IProps) {
 
   return (
     <sc.BtnContainer
-      data-cy={driver.dataCy}
       height={driver.height}
       width={driver.width}
       color={driver.color}

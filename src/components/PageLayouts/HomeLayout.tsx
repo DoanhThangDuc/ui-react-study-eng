@@ -12,7 +12,7 @@ export function HomeLayout(props: HomeLayoutProps) {
 
   return (
     <sc.HomeLayoutContainer
-      arial-layout="HomeLayoutContainer"
+      aria-label="HomeLayoutContainer"
       role="region">
       {renderModal()}
       {renderNavBar()}

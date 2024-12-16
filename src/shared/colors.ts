@@ -11,3 +11,4 @@ export const seLightGray = '#495057';
 export const seSpiroDiscoBall = '#32c5ff';
 export const seCadetBlue = '#b1b9c1';
 export const seBlueYonder = '#4267b2';
+export const seRed = '#ee220c';

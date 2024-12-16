@@ -12,7 +12,7 @@ export namespace sc {
     align-items: center;
     margin: 131px 0 160px 0;
   `;
-  export const BookLogo = styled.image`
+  export const BookLogo = styled.div`
     width: 200px;
     height: 200px;
     background: url("../images/book-icon.png") center no-repeat;

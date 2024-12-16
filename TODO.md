@@ -1,14 +1,6 @@
 ## TODO list for the ui-react application (developer should follow)
-- create website logo (done)
-  - slogan: Master English with AI, Explore the Universe of Language! (done)
-- create navigation bar (done)
-
 - creating home page (doing)
-- create button generic 
-- setup userTranslation
-- implement fonts mechanism for the application
-
-- investigate redux constructure
+- handle validation for login form
 
 - investigate first Desktop or Mobile
 - investigate visual testing

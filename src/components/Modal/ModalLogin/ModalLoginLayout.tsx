@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { sc } from './ModalLoginLayout.styled';
 import { Button } from '../../Buttons/Button';
-import { seDarkGunmetal, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
+import { seDarkGunmetal, seSpanishGray, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { SEReactProps } from '../../../shared/typings/SeReactProp';
@@ -14,12 +14,14 @@ interface IProps extends SEReactProps {
 }
 export function ModalLoginLayout(props: IProps) {
   const { t }= useTranslation('modal');
-  const { renderModalWrapper } = props;
+  const { renderModalWrapper, driver } = props;
 
   return (
-    <sc.Container arial-lable="ModalLogin-Container" role="dialog">
+    <sc.Container aria-label="ModalLogin-Container" role="dialog">
       {renderModalWrapper(
-        <sc.ModalLoginContainer>
+        <sc.ModalLoginContainer
+          role="modal"
+          aria-label="ModalLoginContainer">
           <sc.ContentColumn>
             <sc.ContentHeader>
               <sc.Title>
@@ -30,16 +32,26 @@ export function ModalLoginLayout(props: IProps) {
               type="email"
               id="email"
               name="email"
-              placeholder='Email' />
+              placeholder='Email'
+              onBlur={driver.onBlur}
+              isEmailValid={driver.isEmailValid} />
+            {!driver.isEmailValid && <sc.ErrorLabel>
+              Email is required
+            </sc.ErrorLabel>}
+
             <sc.PasswordInput
               type="password"
               id="password"
               name="password"
-              placeholder='Password' />
+              placeholder='Password'
+              isPasswordValid={driver.isPasswordValid} />
+            {!driver.isPasswordValid && <sc.ErrorLabel>
+              Password is required
+            </sc.ErrorLabel>}
+
             <Button
               driver={{
                 type: 'primary',
-                dataCy: 'LoginBtn',
                 color: seWhite,
                 bgColor: seSpiroDiscoBall
               }}>
@@ -53,7 +65,6 @@ export function ModalLoginLayout(props: IProps) {
             <Button
               driver={{
                 type: 'primary',
-                dataCy: 'LoginByFaceBook',
               }}>
               <sc.LoginBtnContent>
                 <FaFacebookSquare size={20} />
@@ -63,11 +74,10 @@ export function ModalLoginLayout(props: IProps) {
             <Button
               driver={{
                 type: 'primary',
-                dataCy: 'LoginByGoogle',
                 margin: '10px 0 0 0',
                 bgColor: seWhite,
                 color: seDarkGunmetal,
-                borderColor: seDarkGunmetal
+                borderColor: seSpanishGray
               }}>
               <sc.LoginBtnContent>
                 <FcGoogle size={20} />

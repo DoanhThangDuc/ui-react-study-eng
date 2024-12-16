@@ -31,7 +31,6 @@ export type FontWeight =
   | 'lighter';
 export interface ButtonDriver {
   readonly type: ButtonType;
-  readonly dataCy: string;
   readonly icon?: string;
   readonly round?: boolean;
   readonly height?: string;

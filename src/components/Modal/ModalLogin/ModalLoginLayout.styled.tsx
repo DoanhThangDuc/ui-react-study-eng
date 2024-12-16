@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { seBlack, seCadetBlue, seDavyGrey, seGunmetal, seLightGray, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
+import { seBlack, seCadetBlue, seDavyGrey, seGunmetal, seLightGray, seRed, seSpanishGray, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
 
 export namespace sc {
   export const Container = styled.div`
@@ -45,18 +45,39 @@ export namespace sc {
     font-weight: 500;
     color: ${seGunmetal};
   `;
-  export const UserNameInput = styled.input`
+  export const UserNameInput = styled.input<{
+    isEmailValid?: boolean;
+  }>`
     width: 280px;
     height: 40px;
-    border: 1px solid ${seLightGray};
+    border: 1px solid;
     border-radius: 4px;
     padding: 6px 36px 6px 12px;
     color: ${seDavyGrey};
     font-size: 14px;
-    box-sizing: border-box; 
-    margin-bottom: 8px;
+    box-sizing: border-box;
+    margin-bottom: ${(props) => (props.isEmailValid ? '8px' : 0)}; 
+    border-color: ${(props) => !props.isEmailValid && seRed}; 
   `;
-  export const PasswordInput = styled(UserNameInput)``;
+  export const ErrorLabel = styled.label`
+    font-size: 12px;
+    color: ${seRed};
+  `;
+
+  export const PasswordInput = styled.input<{
+    isPasswordValid?: boolean,
+  }>`
+    width: 280px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 6px 36px 6px 12px;
+    color: ${seDavyGrey};
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: ${(props) => (props.isPasswordValid ? '8px' : 0)}; 
+    border-color: ${(props) => (!props.isPasswordValid ? seRed : 'initial')};
+  `;
   export const DividerContainer = styled.div`
     width: 100%;
     padding: 5px 0;

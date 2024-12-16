@@ -35,7 +35,7 @@ export function NavBar() {
               {t('grammar-course')}
             </sc.NavigatorItem>
           </sc.Navigators>
-          <sc.ButtonsContainer onClick={() => openModal()}>
+          <sc.ButtonsContainer onClick={openModal}>
             <sc.LoginBtn >
               {t('login-btn')}
             </sc.LoginBtn>
@@ -45,7 +45,6 @@ export function NavBar() {
           </sc.ButtonsContainer>
         </sc.NavBarContent>
       </sc.NavigationContainer>
-
     </sc.Container>
   );
 }

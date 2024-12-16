@@ -50,10 +50,8 @@ export const LazyModalWrapper = (props: {
         },
       }}>
       <sc.ModalOverlay
-        arial-lable="ModalOverlay"
-        onClick={() => {
-          props.driver.closeModal();
-        }} />
+        aria-label="ModalOverlay"
+        onClick={props.driver.closeModal} />
       <sc.ModalBody>
         {children}
       </sc.ModalBody>
