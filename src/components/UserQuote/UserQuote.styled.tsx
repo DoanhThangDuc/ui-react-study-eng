@@ -13,7 +13,7 @@ export namespace sc {
   export const QuoteIcon = styled.div`
     width: 40px;
     height: 40px;
-    background-image: url("../images/icon-quote.png");
+    background-image: url("/images/icon-quote.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;

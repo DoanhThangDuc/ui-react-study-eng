@@ -24,5 +24,6 @@ interface IProps extends SEReactProps {
 }
 export function Icon(props: IProps) {
   const {  children } = props;
+
   return <sc.Container>{children}</sc.Container>;
 }

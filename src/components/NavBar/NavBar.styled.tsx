@@ -11,28 +11,6 @@ export namespace sc {
     justify-content: center;
     align-items: center;
   `;
-
-  export const Content = styled.div`
-    width: 1440px;
-  `;
-
-  export const TrialContainer = styled.div`
-    width: 100%;
-    height: 50px;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    background-color: ${seLust};
-  `;
-
- export const TrialContent = styled.p`
-    font-weight: bold;
-
-    color: ${seWhite};
-    font-size: 16px;
-  `;
-
    export const NavigationContainer = styled.div`
     width: 100%;
     display: flex;
