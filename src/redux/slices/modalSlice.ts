@@ -2,9 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ModalSliceDriver {
   isOpen: boolean;
+  isTesting: boolean;
 }
 const initialState: ModalSliceDriver = {
   isOpen: false,
+  isTesting: false,
 };
 
 const modalSlice = createSlice({
