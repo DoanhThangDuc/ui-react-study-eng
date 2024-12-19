@@ -14,7 +14,7 @@ export interface ModalLoginDriver extends ModalDriver {
   handleSubmitLogin:() => void;
 }
 export function ModalLogin() {
-  const store = useModal();
+  const { modalLogin: store } = useModal();
 
   return (
     <ModalLoginLayout

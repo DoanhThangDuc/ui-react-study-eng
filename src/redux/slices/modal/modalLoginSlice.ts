@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { validateEmail } from '../../shared/helpers/validateEmail';
+import { validateEmail } from '../../../shared/helpers/validateEmail';
 
-interface ModalSliceDriver {
+interface ModalLoginSliceDriver {
   isOpen: boolean;
   emailAddress: string;
   emailErrorMessage?: string;
@@ -9,7 +9,7 @@ interface ModalSliceDriver {
   passwordErrorMessage?: string;
 }
 
-const initialState: ModalSliceDriver = {
+const initialState: ModalLoginSliceDriver = {
   isOpen: false,
   emailAddress: '',
   emailErrorMessage: '',
@@ -43,8 +43,8 @@ const setPasswordError = (password: string) => {
   return '';
 };
 
-const modalSlice = createSlice({
-  name: 'modal',
+const modalLoginSlice = createSlice({
+  name: 'modalLogin',
   initialState,
   reducers: {
     onOpenModal: () => {
@@ -61,7 +61,7 @@ const modalSlice = createSlice({
 
     onEmailChange: (state, action: PayloadAction<string>) => {
       state.emailAddress = action.payload.trim();
-      state.emailErrorMessage = setEmailError(state.emailAddress);
+      state.emailErrorMessage = '';
     },
 
     onPasswordBlur: (state) => {
@@ -70,7 +70,7 @@ const modalSlice = createSlice({
 
     onPasswordChange: (state, action: PayloadAction<string>) => {
       state.password = action.payload.trim();
-      state.passwordErrorMessage = setPasswordError(state.password);
+      state.passwordErrorMessage = '';
     },
 
     handleSubmitLogin: (state) => {
@@ -92,6 +92,6 @@ export const {
   onEmailChange,
   onPasswordChange,
   handleSubmitLogin
-} = modalSlice.actions;
+} = modalLoginSlice.actions;
 
-export default modalSlice.reducer;
+export default modalLoginSlice.reducer;

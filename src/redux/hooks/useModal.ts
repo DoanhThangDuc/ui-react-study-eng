@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
-import * as ModalActions from '../slices/modalSlice';
+import * as modalLoginAction from '../slices/modal/modalLoginSlice';
 import { bindActionCreators } from '@reduxjs/toolkit';
 
 export const useModal = () => {
-  const states = useSelector((state: RootState) => state.modal);
+  const modalLoginStates = useSelector((state: RootState) => state.modal.modalLogin);
 
   const dispatch = useDispatch<AppDispatch>();
-  const actions = bindActionCreators(ModalActions, dispatch);
+  const modalLoginActions = bindActionCreators(modalLoginAction, dispatch);
 
-  return { ...states, ...actions };
+  return { modalLogin: { ...modalLoginStates, ...modalLoginActions } };
 };

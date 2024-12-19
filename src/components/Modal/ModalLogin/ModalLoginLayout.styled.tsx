@@ -45,7 +45,7 @@ export namespace sc {
     font-weight: 500;
     color: ${seGunmetal};
   `;
-  export const UserNameInput = styled.input<{
+  export const EmailInput = styled.input<{
     isEmailValid?: boolean;
   }>`
     width: 280px;

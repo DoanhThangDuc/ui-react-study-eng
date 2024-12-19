@@ -28,11 +28,12 @@ export function ModalLoginLayout(props: IProps) {
                 {t('modal-login.login-title')}
               </sc.Title>
             </sc.ContentHeader>
-            <sc.UserNameInput
+            <sc.EmailInput
               type="email"
               id="email"
               name="email"
               placeholder='Email'
+              value={driver.emailAddress}
               onBlur={driver.onEmailBlur}
               onChange={(input) => {
                 driver.onEmailChange(input.target.value);
@@ -47,6 +48,7 @@ export function ModalLoginLayout(props: IProps) {
               id="password"
               name="password"
               placeholder='Password'
+              value={driver.password}
               isPasswordValid={!driver.passwordErrorMessage}
               onBlur={driver.onPasswordBlur}
               onChange={(input) => {

@@ -5,7 +5,7 @@ import { initReactI18next } from 'react-i18next';
 
 i18n
   .use(HttpBackend)
-  // .use(LanguageDetector)
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'en', // Default language

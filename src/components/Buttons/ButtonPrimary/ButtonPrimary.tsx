@@ -5,7 +5,6 @@ import { sc } from './ButtonPrimary.styled';
 interface IProps extends SEReactProps {
   driver: ButtonDriver,
 }
-
 export function ButtonPrimary(props: IProps) {
   const { driver, children } = props;
 
