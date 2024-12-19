@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm test -- --coverage
+        run: npm test -- --coverage --watchAll=false
 
   deploy:
     name: Deploy to Vercel
