@@ -4,7 +4,7 @@ import { useModal } from '../../redux/hooks';
 
 export function HomeHeader() {
   const { t } = useTranslation('homepage');
-  const { onOpenModal }= useModal();
+  const { modalLogin }= useModal();
 
   return (
     <sc.ContentContainer
@@ -18,7 +18,7 @@ export function HomeHeader() {
           </sc.HeaderTitle>
         </sc.HeaderTitleContainer>
         <sc.JoinBtn
-          onClick={() => onOpenModal()}>{t('join-btn')}</sc.JoinBtn>
+          onClick={() => modalLogin.onOpenModal()}>{t('join-btn')}</sc.JoinBtn>
       </sc.HeaderContainer>
     </sc.ContentContainer>
   );
