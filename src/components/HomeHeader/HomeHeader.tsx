@@ -5,7 +5,6 @@ import { useModal } from '../../redux/hooks';
 export function HomeHeader() {
   const { t } = useTranslation('homepage');
   const { modalLogin }= useModal();
-  console.log('test');
 
   return (
     <sc.ContentContainer
