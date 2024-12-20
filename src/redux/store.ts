@@ -6,7 +6,6 @@ import navReducer from './slices/navSlice';
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    // modal: modalReducer,
     modal: modalReducer,
     nav: navReducer,
   },
