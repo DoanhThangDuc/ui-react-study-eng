@@ -18,7 +18,7 @@ export function ButtonPrimary(props: IProps) {
       fontWeight={driver.fontWeight}
       margin={driver.margin}
       padding={driver.padding}
-      borderColor={driver.borderColor}
+      bordercolor={driver.borderColor}
       cursor={driver.cursor}>
       {children}
     </sc.BtnContainer>

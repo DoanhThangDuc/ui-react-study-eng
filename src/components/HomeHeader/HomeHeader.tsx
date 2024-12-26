@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { sc } from './HomeHeader.styled';
-import { useModal } from '../../redux/hooks';
+import { useModal } from '../../store/hooks';
 
 export function HomeHeader() {
   const { t } = useTranslation('homepage');

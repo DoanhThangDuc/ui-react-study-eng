@@ -6,11 +6,14 @@ import reducer, {
   onEmailChange,
   onPasswordChange,
   handleSubmitLogin,
+  ModalLoginSliceDriver,
 } from './modalLoginSlice';
 
 describe('modalLoginSlice', () => {
-  const initialState = {
+  const initialState: ModalLoginSliceDriver = {
     isOpen: false,
+    loading: false,
+    error: null,
     emailAddress: '',
     emailErrorMessage: '',
     password: '',

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './slices/authSlice';
-import modalReducer from './slices/modal';
-import navReducer from './slices/navSlice';
+import authReducer from './features/authSlice';
+import modalReducer from './features/modal';
+import navReducer from './features/navSlice';
 
 export const store = configureStore({
   reducer: {
@@ -9,6 +9,9 @@ export const store = configureStore({
     modal: modalReducer,
     nav: navReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(),
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 export type RootState = ReturnType<typeof store.getState>;

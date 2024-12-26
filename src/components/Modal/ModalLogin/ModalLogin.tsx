@@ -1,6 +1,6 @@
 import { LazyModalWrapper, ModalDriver } from '../../LazyModalWrapper/LazyModalWrapper';
 import { ModalLoginLayout } from './ModalLoginLayout';
-import { useModal } from '../../../redux/hooks';
+import { useModal } from '../../../store/hooks';
 
 export interface ModalLoginDriver extends ModalDriver {
   emailAddress: string;

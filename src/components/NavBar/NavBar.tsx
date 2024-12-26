@@ -1,7 +1,7 @@
 'use client';
 import { useTranslation } from 'react-i18next';
 import { sc } from './NavBar.styled';
-import { useModal } from '../../redux/hooks';
+import { useModal } from '../../store/hooks';
 
 export interface NavBarDriver {
 }

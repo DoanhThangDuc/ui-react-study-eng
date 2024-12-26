@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { validateEmail } from '../../../shared/helpers/validateEmail';
+import { signup } from '../../../thunks/authThunks';
+import { setEmailError } from '../../../../shared/helpers/setEmailError';
+import { setPasswordError } from '../../../../shared/helpers/setPasswordError';
 
-interface ModalLoginSliceDriver {
+export interface ModalLoginSliceDriver {
   isOpen: boolean;
+  loading: boolean;
+  error: string | null;
   emailAddress: string;
   emailErrorMessage?: string;
   password: string;
@@ -11,44 +15,20 @@ interface ModalLoginSliceDriver {
 
 const initialState: ModalLoginSliceDriver = {
   isOpen: false,
+  loading: false,
+  error: null,
   emailAddress: '',
   emailErrorMessage: '',
   password: '',
   passwordErrorMessage: '',
 };
 
-const setEmailError = (email: string) => {
-  if (!email) {
-    return 'modal-login.email-required';
-  }
-  if (!validateEmail(email)) {
-    return 'modal-login.email-invalid';
-  }
-  return '';
-};
-
-const setPasswordError = (password: string) => {
-  if (!password) {
-    return 'modal-login.password-required';
-  }
-  if (password.length < 8) {
-    return 'modal-login.password-length-invalid';
-  }
-  if (!/[A-Z]/.test(password)) {
-    return 'modal-login.password-uppercase-character';
-  }
-  if (!/[@$!%*?&#]/.test(password)) {
-    return 'modal-login.password-special-character';
-  }
-  return '';
-};
-
 const modalLoginSlice = createSlice({
   name: 'modalLogin',
   initialState,
   reducers: {
-    onOpenModal: () => {
-      return { ...initialState, isOpen: true };
+    onOpenModal: (state) => {
+      state.isOpen = true;
     },
 
     onCloseModal: (state) => {
@@ -76,11 +56,22 @@ const modalLoginSlice = createSlice({
     handleSubmitLogin: (state) => {
       state.emailErrorMessage = setEmailError(state.emailAddress);
       state.passwordErrorMessage = setPasswordError(state.password);
-
-      if(state.emailErrorMessage ||state.passwordErrorMessage) {
-        return;
-      }
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(signup.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(signup.fulfilled, (state) => {
+        state.loading = false;
+        state.isOpen = false;
+      })
+      .addCase(signup.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      });
   },
 });
 
@@ -91,7 +82,7 @@ export const {
   onPasswordBlur,
   onEmailChange,
   onPasswordChange,
-  handleSubmitLogin
+  handleSubmitLogin,
 } = modalLoginSlice.actions;
 
 export default modalLoginSlice.reducer;

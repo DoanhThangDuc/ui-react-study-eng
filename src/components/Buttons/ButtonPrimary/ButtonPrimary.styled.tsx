@@ -10,14 +10,14 @@ export namespace sc {
     fontSize?: string;
     fontWeight?: string | number;
     borderRadius?: string;
-    borderColor?: string;
+    bordercolor?: string;
     margin?: string;
     padding?: string;
     cursor?: string;
   }>`
     width: ${(props) => props.width || '280px'};
     height: ${(props) => props.height || '40px'};
-    border: ${(props) => (props.borderColor ? `1px solid ${props.borderColor}` : 'none')};
+    border: ${(props) => (props.bordercolor ? `1px solid ${props.bordercolor}` : 'none')};
     border-radius: ${(props) => props.borderRadius || '4px'};
     color: ${(props) => props.color || `${seWhite}`};
     background-color: ${(props) => props.bgColor || `${seBlueYonder}`};

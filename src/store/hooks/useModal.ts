@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../store';
-import * as modalLoginAction from '../slices/modal/modalLoginSlice';
+import { AppDispatch, RootState } from '..';
+import * as modalLoginAction from '../features/modal/modalLogin/modalLoginSlice';
 import { bindActionCreators } from '@reduxjs/toolkit';
+import { ModalLoginDriver } from '../../components/Modal/ModalLogin/ModalLogin';
 
-export const useModal = () => {
+export const useModal = (): {
+  modalLogin: ModalLoginDriver
+} => {
   const modalLoginStates = useSelector((state: RootState) => state.modal.modalLogin);
 
   const dispatch = useDispatch<AppDispatch>();
