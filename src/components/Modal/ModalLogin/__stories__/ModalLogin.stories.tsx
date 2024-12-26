@@ -19,6 +19,7 @@ const MockModalDriver: ModalLoginDriver = {
     console.log('Password changed to:', password),
   handleSubmitLogin: () => console.log('Login submitted'),
   onCloseModal: () => console.log('Modal closed'),
+  onOpenModal: () => console.log('Modal opened'),
 };
 
 export default {
