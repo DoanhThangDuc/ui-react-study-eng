@@ -3,6 +3,7 @@ import { AppDispatch, RootState } from '..';
 import * as modalLoginAction from '../features/modal/modalLogin/modalLoginSlice';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { ModalLoginDriver } from '../../components/Modal/ModalLogin/ModalLogin';
+import { handleSubmitLogin } from '../thunks/modalLoginThunks';
 
 export const useModal = (): {
   modalLogin: ModalLoginDriver
@@ -12,5 +13,11 @@ export const useModal = (): {
   const dispatch = useDispatch<AppDispatch>();
   const modalLoginActions = bindActionCreators(modalLoginAction, dispatch);
 
-  return { modalLogin: { ...modalLoginStates, ...modalLoginActions } };
+  return {
+    modalLogin: {
+      ...modalLoginStates,
+      ...modalLoginActions,
+      handleSubmitLogin: () => dispatch(handleSubmitLogin()).unwrap(),
+    },
+  };
 };

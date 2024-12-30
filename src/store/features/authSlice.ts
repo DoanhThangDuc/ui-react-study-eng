@@ -1,49 +1,61 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { signup } from '../thunks/authThunks';
+import { handleSubmitLogin, signUp } from '../thunks/modalLoginThunks';
 
 export interface AuthDriver {
+  emailAddress: string;
+  preHashedPassword: string;
   isAuthenticated: boolean;
   user: string | null;
   loading: boolean,
   error: null;
+}
+export interface SignUpPayload {
+  emailAddress: string,
+  firstName: string,
+  lastName: string,
+  preHashedPassword: string
+}
+
+export interface SignInPayload {
+  emailAddress: string,
+  password: string
 }
 
 const initialState: AuthDriver = {
   isAuthenticated: false,
   user: null,
   loading: false,
-  error: null
+  error: null,
+  emailAddress: '',
+  preHashedPassword: '',
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    login: (state, action: PayloadAction<string>) => {
-      // state.isAuthenticated = true;
-      // state.user = action.payload;
-    },
-    logout: (state) => {
-      state.isAuthenticated = false;
-      state.user = null;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(signup.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+      .addCase(signUp.pending, (state, action) => {
       })
-      .addCase(signup.fulfilled, (state) => {
+      .addCase(signUp.fulfilled, (state) => {
         state.loading = false;
-        // state.isOpen = false;
       })
-      .addCase(signup.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(signUp.rejected, (state, action: PayloadAction<any>) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(handleSubmitLogin.pending, (state, action) => {
+      })
+      .addCase(handleSubmitLogin.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(handleSubmitLogin.rejected, (state, action: PayloadAction<any>) => {
         state.loading = false;
         state.error = action.payload;
       });
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { } = authSlice.actions;
 export default authSlice.reducer;

@@ -7,9 +7,6 @@ import { FcGoogle } from 'react-icons/fc';
 import { SEReactProps } from '../../../shared/typings/SeReactProp';
 import { ReactNode } from 'react';
 import { ModalLoginDriver } from './ModalLogin';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../store';
-import { signup } from '../../../store/thunks/authThunks';
 
 interface IProps extends SEReactProps {
   driver: ModalLoginDriver;
@@ -18,7 +15,6 @@ interface IProps extends SEReactProps {
 export function ModalLoginLayout(props: IProps) {
   const { t }= useTranslation('modal');
   const { renderModalWrapper, driver } = props;
-  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <sc.Container aria-label="ModalLogin-Container" role="dialog">
@@ -67,16 +63,12 @@ export function ModalLoginLayout(props: IProps) {
                 type: 'primary',
                 color: seWhite,
                 bgColor: seSpiroDiscoBall,
-                onClick: driver.handleSubmitLogin
+                onClick: () => {
+                  console.log('onClick :>>');
+                  driver.handleSubmitLogin();
+                }
               }}>
-              <sc.LoginBtn
-              // onClick={driver.handleSubmitLogin}
-                onClick={() => {
-                  dispatch(signup({
-                    email: 'test@example.com',
-                    password: 'test'
-                  }));
-                }}>
+              <sc.LoginBtn >
                 {t('modal-login.login-btn')}
               </sc.LoginBtn>
             </Button>

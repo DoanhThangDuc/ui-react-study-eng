@@ -11,8 +11,8 @@ export interface ModalLoginDriver extends ModalDriver {
   onPasswordBlur: () => void;
   onEmailChange:(email: string) => void;
   onPasswordChange:(password: string) => void;
-  handleSubmitLogin:() => void;
   onOpenModal:() => void;
+  handleSubmitLogin: () => Promise<void>
 }
 export function ModalLogin() {
   const { modalLogin: store } = useModal();

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { signup } from '../../../thunks/authThunks';
 import { setEmailError } from '../../../../shared/helpers/setEmailError';
 import { setPasswordError } from '../../../../shared/helpers/setPasswordError';
 
@@ -53,25 +52,10 @@ const modalLoginSlice = createSlice({
       state.passwordErrorMessage = '';
     },
 
-    handleSubmitLogin: (state) => {
-      state.emailErrorMessage = setEmailError(state.emailAddress);
-      state.passwordErrorMessage = setPasswordError(state.password);
+    setValidationErrors: (state, action: PayloadAction<{ emailErrorMessage: string; passwordErrorMessage: string }>) => {
+      state.emailErrorMessage = action.payload.emailErrorMessage;
+      state.passwordErrorMessage = action.payload.passwordErrorMessage;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(signup.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(signup.fulfilled, (state) => {
-        state.loading = false;
-        state.isOpen = false;
-      })
-      .addCase(signup.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload as string;
-      });
   },
 });
 
@@ -82,7 +66,7 @@ export const {
   onPasswordBlur,
   onEmailChange,
   onPasswordChange,
-  handleSubmitLogin,
+  setValidationErrors,
 } = modalLoginSlice.actions;
 
 export default modalLoginSlice.reducer;

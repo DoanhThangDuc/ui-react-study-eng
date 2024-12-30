@@ -17,7 +17,9 @@ const MockModalDriver: ModalLoginDriver = {
   onEmailChange: (email: string) => console.log('Email changed to:', email),
   onPasswordChange: (password: string) =>
     console.log('Password changed to:', password),
-  handleSubmitLogin: () => console.log('Login submitted'),
+  handleSubmitLogin: async (): Promise<void> => {
+    console.log('Login submitted');
+  },
   onCloseModal: () => console.log('Modal closed'),
   onOpenModal: () => console.log('Modal opened'),
 };
