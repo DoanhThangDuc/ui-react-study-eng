@@ -1,4 +1,4 @@
-export const setPasswordError = (password: string) => {
+export const getPasswordError = (password: string) => {
   if (!password) {
     return 'modal-login.password-required';
   }

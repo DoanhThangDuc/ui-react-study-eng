@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { SignUpPayload } from '../features/authSlice';
 import { ModalLoginSliceDriver, setValidationErrors } from '../features/modal/modalLogin/modalLoginSlice';
-import { setEmailError } from '../../shared/helpers/setEmailError';
-import { setPasswordError } from '../../shared/helpers/setPasswordError';
+import { getEmailError } from '../../shared/helpers/getEmailError';
+import { getPasswordError } from '../../shared/helpers/getPasswordError';
 import { encodePassword } from '../../shared/helpers/encodePassword';
 
 export const signUp = createAsyncThunk(
@@ -31,19 +31,20 @@ export const signUp = createAsyncThunk(
 
 export const handleSubmitLogin = createAsyncThunk(
   'modalLogin/handleSubmitLogin',
-  async (_, { getState, dispatch, rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
     const state = getState() as { modal: {
       modalLogin: ModalLoginSliceDriver
     } };
 
     const { emailAddress, password } = state.modal.modalLogin;
 
-    const emailErrorMessage = setEmailError(emailAddress);
-    const passwordErrorMessage = setPasswordError(password);
+    const emailErrorMessage = getEmailError(emailAddress);
+    const passwordErrorMessage = getPasswordError(password);
 
     if (emailErrorMessage || passwordErrorMessage) {
-      dispatch(setValidationErrors({ emailErrorMessage, passwordErrorMessage }));
-      return rejectWithValue('Validation failed');
+      return rejectWithValue(
+        { emailErrorMessage, passwordErrorMessage }
+      );
     }
 
     try {
@@ -58,8 +59,7 @@ export const handleSubmitLogin = createAsyncThunk(
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || 'Sign-in failed');
+        return rejectWithValue(await response.json());
       }
 
       return await response.json();

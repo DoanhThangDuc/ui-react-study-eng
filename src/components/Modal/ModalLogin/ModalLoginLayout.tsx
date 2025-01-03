@@ -17,7 +17,7 @@ export function ModalLoginLayout(props: IProps) {
   const { renderModalWrapper, driver } = props;
 
   return (
-    <sc.Container aria-label="ModalLogin-Container" role="dialog">
+    <sc.Container>
       {renderModalWrapper(
         <sc.ModalLoginContainer
           role="modal"
@@ -63,10 +63,7 @@ export function ModalLoginLayout(props: IProps) {
                 type: 'primary',
                 color: seWhite,
                 bgColor: seSpiroDiscoBall,
-                onClick: () => {
-                  console.log('onClick :>>');
-                  driver.handleSubmitLogin();
-                }
+                onClick: driver.handleSubmitLogin
               }}>
               <sc.LoginBtn >
                 {t('modal-login.login-btn')}

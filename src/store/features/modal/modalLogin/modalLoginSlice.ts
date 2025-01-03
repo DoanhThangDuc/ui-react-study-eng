@@ -1,11 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { setEmailError } from '../../../../shared/helpers/setEmailError';
-import { setPasswordError } from '../../../../shared/helpers/setPasswordError';
+import { getEmailError } from '../../../../shared/helpers/getEmailError';
+import { getPasswordError } from '../../../../shared/helpers/getPasswordError';
+import { handleSubmitLogin } from '../../../thunks/modalLoginThunks';
 
+export type ErrorMessageType = 'Unauthorized' |'InvalidCredentials'
+export interface ErrorMessage {
+  debugMessage:string
+  options: string,
+  status: string,
+  type: ErrorMessageType
+}
 export interface ModalLoginSliceDriver {
   isOpen: boolean;
-  loading: boolean;
-  error: string | null;
+  isLoading: boolean;
   emailAddress: string;
   emailErrorMessage?: string;
   password: string;
@@ -14,8 +21,7 @@ export interface ModalLoginSliceDriver {
 
 const initialState: ModalLoginSliceDriver = {
   isOpen: false,
-  loading: false,
-  error: null,
+  isLoading: false,
   emailAddress: '',
   emailErrorMessage: '',
   password: '',
@@ -35,7 +41,7 @@ const modalLoginSlice = createSlice({
     },
 
     onEmailBlur: (state) => {
-      state.emailErrorMessage = setEmailError(state.emailAddress);
+      state.emailErrorMessage = getEmailError(state.emailAddress);
     },
 
     onEmailChange: (state, action: PayloadAction<string>) => {
@@ -44,7 +50,7 @@ const modalLoginSlice = createSlice({
     },
 
     onPasswordBlur: (state) => {
-      state.passwordErrorMessage = setPasswordError(state.password);
+      state.passwordErrorMessage = getPasswordError(state.password);
     },
 
     onPasswordChange: (state, action: PayloadAction<string>) => {
@@ -52,10 +58,29 @@ const modalLoginSlice = createSlice({
       state.passwordErrorMessage = '';
     },
 
-    setValidationErrors: (state, action: PayloadAction<{ emailErrorMessage: string; passwordErrorMessage: string }>) => {
+    setValidationErrors: (state, action: PayloadAction<{
+      emailErrorMessage: string,
+      passwordErrorMessage: string
+    }>) => {
       state.emailErrorMessage = action.payload.emailErrorMessage;
       state.passwordErrorMessage = action.payload.passwordErrorMessage;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(handleSubmitLogin.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(handleSubmitLogin.fulfilled, (state, action) => {
+        state.isLoading = false;
+      })
+      .addCase(handleSubmitLogin.rejected, (state, action) => {
+        state.isLoading = false;
+
+        if ((action.payload as ErrorMessage).type) {
+          state.emailErrorMessage = getEmailError((action.payload as ErrorMessage).type);
+        }
+      });
   },
 });
 

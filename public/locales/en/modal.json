@@ -6,6 +6,8 @@
     "login-by-google-btn": "Continue with Google",
     "need-account": "Need an account? Join English Alien",
     "email-required": "Email is required",
+    "email-not-found": "Email not found. Please check and try again.",
+    "email-not-correct": "Incorrect email or password. Please check and try again.",
     "email-invalid": "Email is invalid",
     "password-required": "Password is required",
     "password-length-invalid": "Password must include at least 8 characters",

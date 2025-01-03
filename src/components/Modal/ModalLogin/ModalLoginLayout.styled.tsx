@@ -28,6 +28,7 @@ export namespace sc {
     z-index: 2; 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 328px;
     height: 496px;
     border-radius: 8px;
@@ -123,7 +124,7 @@ export namespace sc {
     justify-content: center;
     align-items: center;
     text-decoration: underline;
-    padding-top: 110px;
+    padding-bottom: 10px;
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;

@@ -35,7 +35,10 @@ export function NavBar() {
               {t('grammar-course')}
             </sc.NavigatorItem>
           </sc.Navigators>
-          <sc.ButtonsContainer onClick={() => modalLogin.onOpenModal()}>
+          <sc.ButtonsContainer
+            aria-label="Login-button"
+            role="button"
+            onClick={modalLogin.onOpenModal}>
             <sc.LoginBtn >
               {t('login-btn')}
             </sc.LoginBtn>
