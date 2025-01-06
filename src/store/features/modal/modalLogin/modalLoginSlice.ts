@@ -5,11 +5,12 @@ import { handleSubmitLogin } from '../../../thunks/modalLoginThunks';
 
 export type ErrorMessageType = 'Unauthorized' |'InvalidCredentials'
 export interface ErrorMessage {
-  debugMessage:string
-  options: string,
-  status: string,
-  type: ErrorMessageType
+  debugMessage: string;
+  options?: string;
+  status: string;
+  type: ErrorMessageType;
 }
+
 export interface ModalLoginSliceDriver {
   isOpen: boolean;
   isLoading: boolean;
@@ -76,9 +77,8 @@ const modalLoginSlice = createSlice({
       })
       .addCase(handleSubmitLogin.rejected, (state, action) => {
         state.isLoading = false;
-
-        if ((action.payload as ErrorMessage).type) {
-          state.emailErrorMessage = getEmailError((action.payload as ErrorMessage).type);
+        if (action.payload?.debugMessage) {
+          state.emailErrorMessage = action.payload.debugMessage;
         }
       });
   },

@@ -13,7 +13,7 @@ interface IProps extends SEReactProps {
   renderModalWrapper(children: ReactNode): ReactNode;
 }
 export function ModalLoginLayout(props: IProps) {
-  const { t }= useTranslation('modal');
+  const { t }= useTranslation('modal-login');
   const { renderModalWrapper, driver } = props;
 
   return (

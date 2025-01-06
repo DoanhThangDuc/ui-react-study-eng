@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { SignUpPayload } from '../features/authSlice';
-import { ModalLoginSliceDriver, setValidationErrors } from '../features/modal/modalLogin/modalLoginSlice';
-import { getEmailError } from '../../shared/helpers/getEmailError';
-import { getPasswordError } from '../../shared/helpers/getPasswordError';
+import { ErrorMessage, ModalLoginSliceDriver } from '../features/modal/modalLogin/modalLoginSlice';
 import { encodePassword } from '../../shared/helpers/encodePassword';
+import { RootState } from '..';
 
 export const signUp = createAsyncThunk(
   'auth/signUp',
@@ -29,7 +28,7 @@ export const signUp = createAsyncThunk(
   }
 );
 
-export const handleSubmitLogin = createAsyncThunk(
+export const handleSubmitLogin = createAsyncThunk<void, void,  {state: RootState, rejectValue: ErrorMessage}>(
   'modalLogin/handleSubmitLogin',
   async (_, { getState, rejectWithValue }) => {
     const state = getState() as { modal: {
@@ -37,15 +36,6 @@ export const handleSubmitLogin = createAsyncThunk(
     } };
 
     const { emailAddress, password } = state.modal.modalLogin;
-
-    const emailErrorMessage = getEmailError(emailAddress);
-    const passwordErrorMessage = getPasswordError(password);
-
-    if (emailErrorMessage || passwordErrorMessage) {
-      return rejectWithValue(
-        { emailErrorMessage, passwordErrorMessage }
-      );
-    }
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/auth/signin`, {
