@@ -1,19 +1,19 @@
-'use client';
-import { NavBar } from '../../components/NavBar/NavBar';
-import { HomeLayout } from '../../components/PageLayouts/HomeLayout';
-import { HomeHeader } from '../../components/HomeHeader/HomeHeader';
-import { GoodForHealthSection } from '../../components/GoodForHealthSection/GoodForHealthSection';
-import { PlanSection } from '../../components/PlanSection/PlanSection.styled';
-import { ModalLogin } from '../../components/Modal/ModalLogin/ModalLogin';
+"use client";
+import { NavBar } from "../../components/NavBar/NavBar";
+import { HomeLayout } from "../../components/PageLayouts/HomeLayout";
+import { HomeHeader } from "../../components/HomeHeader/HomeHeader";
+import { ModalLogin } from "../../components/Modal/ModalLogin/ModalLogin";
+import { HomeBody } from "@/components/HomeBody/HomeBody";
+import { HomeFooter } from "@/components/HomeFooter/HomeFooter";
 
 export default function HomePage() {
-
   return (
     <HomeLayout
-      renderNavBar={() => (<NavBar />)}
-      renderHeader={() => (<HomeHeader />)}
-      renderBody={() => (<GoodForHealthSection />)}
-      renderFooter={() => (<PlanSection />)}
-      renderModal={() => <ModalLogin />} />
+      renderNavBar={() => <NavBar />}
+      renderHeader={() => <HomeHeader />}
+      renderBody={() => <HomeBody />}
+      renderFooter={() => <HomeFooter />}
+      renderModal={() => <ModalLogin />}
+    />
   );
 }
