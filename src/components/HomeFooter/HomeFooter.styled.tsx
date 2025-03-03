@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export namespace sc {
   export const FooterContainer = styled.div`

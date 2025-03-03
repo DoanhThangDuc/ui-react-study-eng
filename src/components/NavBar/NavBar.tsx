@@ -1,13 +1,16 @@
 'use client';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 import { sc } from './NavBar.styled';
-import { useModal } from '../../store/hooks';
+import { useRootStore } from '../Provider/StoreProvider';
+import { useState } from 'react';
+import { ModalLoginPresenter } from '../../store/ModalLoginPresenter';
 
 export interface NavBarDriver {
 }
-export function NavBar() {
+export const  NavBar = () => {
   const { t } = useTranslation('navbar');
-  const { modalLogin }= useModal();
+  const rootStore = useRootStore();
+  const [presenter] = useState(() => new ModalLoginPresenter(rootStore));
 
   return (
     <sc.Container
@@ -38,7 +41,7 @@ export function NavBar() {
           <sc.ButtonsContainer
             aria-label="Login-button"
             role="button"
-            onClick={modalLogin.onOpenModal}>
+            onClick={presenter.onOpenModal}>
             <sc.LoginBtn >
               {t('login-btn')}
             </sc.LoginBtn>
@@ -50,4 +53,4 @@ export function NavBar() {
       </sc.NavigationContainer>
     </sc.Container>
   );
-}
+};

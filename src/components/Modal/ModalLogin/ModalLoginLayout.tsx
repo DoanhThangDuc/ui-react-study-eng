@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 import { sc } from './ModalLoginLayout.styled';
 import { Button } from '../../Buttons/Button';
 import { seDarkGunmetal, seSpanishGray, seSpiroDiscoBall, seWhite } from '../../../shared/colors';
@@ -7,12 +7,13 @@ import { FcGoogle } from 'react-icons/fc';
 import { SEReactProps } from '../../../shared/typings/SeReactProp';
 import { ReactNode } from 'react';
 import { ModalLoginDriver } from './ModalLogin';
+import { observer } from 'mobx-react-lite';
 
 interface IProps extends SEReactProps {
   driver: ModalLoginDriver;
   renderModalWrapper(children: ReactNode): ReactNode;
 }
-export function ModalLoginLayout(props: IProps) {
+export const ModalLoginLayout = observer((props: IProps) => {
   const { t }= useTranslation('modal-login');
   const { renderModalWrapper, driver } = props;
 
@@ -103,4 +104,4 @@ export function ModalLoginLayout(props: IProps) {
 
     </sc.Container>
   );
-}
+});

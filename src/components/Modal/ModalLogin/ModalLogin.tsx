@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { LazyModalWrapper, ModalDriver } from '../../LazyModalWrapper/LazyModalWrapper';
 import { ModalLoginLayout } from './ModalLoginLayout';
-import { useModal } from '../../../store/hooks';
+import { ModalLoginPresenter } from '../../../store/ModalLoginPresenter';
+import { observer } from 'mobx-react-lite';
+import { useRootStore } from '../../Provider/StoreProvider';
 
 export interface ModalLoginDriver extends ModalDriver {
   emailAddress: string;
@@ -14,16 +17,17 @@ export interface ModalLoginDriver extends ModalDriver {
   onOpenModal:() => void;
   handleSubmitLogin: () => Promise<void>
 }
-export function ModalLogin() {
-  const { modalLogin: store } = useModal();
+export const ModalLogin = observer(() => {
+  const rootStore = useRootStore();
+  const [presenter] = useState(() => new ModalLoginPresenter(rootStore));
 
   return (
     <ModalLoginLayout
-      driver={store}
+      driver={presenter}
       renderModalWrapper={(children) => (
-        <LazyModalWrapper driver={store}>
+        <LazyModalWrapper driver={presenter}>
           {children}
         </LazyModalWrapper>
       )} />
   );
-}
+});

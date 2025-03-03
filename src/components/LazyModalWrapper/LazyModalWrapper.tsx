@@ -1,11 +1,12 @@
 import Modal from 'react-modal';
 import { sc } from './LazyModalWrapper.styled';
+import { observer } from 'mobx-react-lite';
 
 export interface ModalDriver {
   isOpen: boolean;
   onCloseModal: () => void
 }
-export const LazyModalWrapper = (props: {
+export const LazyModalWrapper = observer((props: {
   children: React.ReactNode;
   driver: ModalDriver
 }) => {
@@ -57,4 +58,4 @@ export const LazyModalWrapper = (props: {
       </sc.ModalBody>
     </Modal>
   );
-};
+});

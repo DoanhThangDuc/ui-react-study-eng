@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 import { HeathBenefit } from '../HeathBenefit/HeathBenefit';
 import { UserQuote } from '../UserQuote/UserQuote';
 import { sc } from './GoodForHealthSection.styled';

@@ -1,4 +1,4 @@
-import { sc } from "./HomeFooter.styled";
+import { sc } from './HomeFooter.styled';
 export function HomeFooter() {
   return (
     <sc.FooterContainer>

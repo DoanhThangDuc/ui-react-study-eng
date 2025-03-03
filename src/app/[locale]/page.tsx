@@ -1,10 +1,10 @@
-"use client";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { HomeLayout } from "../../components/PageLayouts/HomeLayout";
-import { HomeHeader } from "../../components/HomeHeader/HomeHeader";
-import { ModalLogin } from "../../components/Modal/ModalLogin/ModalLogin";
-import { HomeBody } from "@/components/HomeBody/HomeBody";
-import { HomeFooter } from "@/components/HomeFooter/HomeFooter";
+'use client';
+import { NavBar } from '../../components/NavBar/NavBar';
+import { HomeLayout } from '../../components/PageLayouts/HomeLayout';
+import { HomeHeader } from '../../components/HomeHeader/HomeHeader';
+import { ModalLogin } from '../../components/Modal/ModalLogin/ModalLogin';
+import { HomeBody } from '@/components/HomeBody/HomeBody';
+import { HomeFooter } from '@/components/HomeFooter/HomeFooter';
 
 export default function HomePage() {
   return (
@@ -13,7 +13,6 @@ export default function HomePage() {
       renderHeader={() => <HomeHeader />}
       renderBody={() => <HomeBody />}
       renderFooter={() => <HomeFooter />}
-      renderModal={() => <ModalLogin />}
-    />
+      renderModal={() => <ModalLogin />} />
   );
 }
