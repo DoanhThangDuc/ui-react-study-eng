@@ -1,16 +1,16 @@
 'use client';
 import { useTranslation } from '../../../node_modules/react-i18next';
 import { sc } from './NavBar.styled';
-import { useRootStore } from '../Provider/StoreProvider';
+import { useRootPresenter } from '../Provider/PresenterProvider';
 import { useState } from 'react';
-import { ModalLoginPresenter } from '../../store/ModalLoginPresenter';
+import { NavBarPresenter } from '../../presenter/NavBarPresenter/NavBarPresenter';
 
 export interface NavBarDriver {
 }
 export const  NavBar = () => {
   const { t } = useTranslation('navbar');
-  const rootStore = useRootStore();
-  const [presenter] = useState(() => new ModalLoginPresenter(rootStore));
+  const rootPresenter = useRootPresenter();
+  const [ presenter ] = useState(() => new NavBarPresenter(rootPresenter));
 
   return (
     <sc.Container

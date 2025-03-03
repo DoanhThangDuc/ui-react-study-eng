@@ -6,4 +6,4 @@
 
 - investigate first Desktop or Mobile
 - investigate visual testing
-- investigate feature flaging store
+- investigate feature flaging presenter

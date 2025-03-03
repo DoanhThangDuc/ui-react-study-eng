@@ -1,8 +1,8 @@
 import { action, computed, makeAutoObservable, observable } from 'mobx';
 import { getEmailError } from '../shared/helpers/getEmailError';
 import { getPasswordError } from '../shared/helpers/getPasswordError';
-import { ModalDriver } from '../store/ModalPresenter/ModalPresenter';
-import { RootStore } from './RootStore';
+import { ModalDriver } from './ModalPresenter/ModalPresenter';
+import { RootPresenter } from './RootPresenter';
 
 export class ModalLoginPresenter implements ModalDriver {
   @observable isLoading = false;
@@ -10,18 +10,18 @@ export class ModalLoginPresenter implements ModalDriver {
   @observable emailErrorMessage = '';
   @observable password = '';
   @observable passwordErrorMessage = '';
-  constructor(private rootStore: RootStore) {
+  constructor(private rootPresenter: RootPresenter) {
     makeAutoObservable(this);
   }
   @computed get isOpen() {
-    return this.rootStore.modalPresenter.isOpen;
+    return this.rootPresenter.modalPresenter.isOpen;
   }
   @action.bound onOpenModal = () => {
-    this.rootStore.modalPresenter.onOpenModal();
+    this.rootPresenter.modalPresenter.onOpenModal();
   };
 
   @action.bound onCloseModal = () => {
-    this.rootStore.modalPresenter.onCloseModal();
+    this.rootPresenter.modalPresenter.onCloseModal();
   };
 
   @action.bound onEmailBlur =() => {
