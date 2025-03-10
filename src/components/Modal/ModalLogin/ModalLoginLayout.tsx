@@ -64,7 +64,8 @@ export const ModalLoginLayout = observer((props: IProps) => {
                 type: 'primary',
                 color: seWhite,
                 bgColor: seSpiroDiscoBall,
-                onClick: driver.handleSubmitLogin
+                disabled: driver.isLoginButtonDisabled,
+                onClick: driver.onLoginButtonClicked
               }}>
               <sc.LoginBtn >
                 {t('modal-login.login-btn')}

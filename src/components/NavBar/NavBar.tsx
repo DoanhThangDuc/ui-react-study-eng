@@ -3,7 +3,7 @@ import { useTranslation } from '../../../node_modules/react-i18next';
 import { sc } from './NavBar.styled';
 import { useRootPresenter } from '../Provider/PresenterProvider';
 import { useState } from 'react';
-import { NavBarPresenter } from '../../presenter/NavBarPresenter/NavBarPresenter';
+import { NavBarPresenter } from '../../presenters/NavBarPresenter/NavBarPresenter';
 
 export interface NavBarDriver {
 }

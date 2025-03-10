@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import { ModalLogin } from '../ModalLogin';
+import { ModalLoginSmart } from '../ModalLogin';
 import { ModalLoginDriver } from '../ModalLogin';
 import { LazyModalWrapper } from '../../../LazyModalWrapper/LazyModalWrapper';
 import { ModalLoginLayout } from '../ModalLoginLayout';
@@ -12,12 +12,13 @@ const MockModalDriver: ModalLoginDriver = {
   emailErrorMessage: '',
   password: '',
   passwordErrorMessage: '',
+  isLoginButtonDisabled: false,
   onEmailBlur: () => console.log('Email blur triggered'),
   onPasswordBlur: () => console.log('Password blur triggered'),
   onEmailChange: (email: string) => console.log('Email changed to:', email),
   onPasswordChange: (password: string) =>
     console.log('Password changed to:', password),
-  handleSubmitLogin: async (): Promise<void> => {
+  onLoginButtonClicked: async (): Promise<void> => {
     console.log('Login submitted');
   },
   onCloseModal: () => console.log('Modal closed'),
@@ -26,13 +27,13 @@ const MockModalDriver: ModalLoginDriver = {
 
 export default {
   title: 'Components/ModalLogin',
-  component: ModalLogin,
+  component: ModalLoginSmart,
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta<typeof ModalLogin>;
+} as Meta<typeof ModalLoginSmart>;
 
-const Template: StoryFn<typeof ModalLogin> = (args: any) => (
+const Template: StoryFn<typeof ModalLoginSmart> = (args: any) => (
   <ModalLoginLayout driver={args.driver}
     renderModalWrapper={(children) => (
       <LazyModalWrapper driver={args.driver}>

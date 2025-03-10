@@ -14,6 +14,7 @@ export namespace sc {
     margin?: string;
     padding?: string;
     cursor?: string;
+    disabled?: boolean
   }>`
     width: ${(props) => props.width || '280px'};
     height: ${(props) => props.height || '40px'};
@@ -26,6 +27,7 @@ export namespace sc {
     margin: ${(props) => props.margin || '0'};
     padding: ${(props) => props.padding || '0'};
     cursor: ${(props) => props.cursor || 'pointer'};
+    opacity: ${(props) => props.disabled ? 0.5 : 1};
     box-sizing: border-box;
     display: flex;
     justify-content: center;

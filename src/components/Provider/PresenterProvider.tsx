@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useContext } from 'react';
-import { RootPresenter } from '../../presenter/RootPresenter';
+import { RootPresenter } from '../../presenters/RootPresenter';
 
 const rootPresenter = new RootPresenter();
 const PresenterContext = createContext(rootPresenter);
