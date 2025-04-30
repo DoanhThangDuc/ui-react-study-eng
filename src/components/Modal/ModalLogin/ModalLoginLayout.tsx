@@ -22,8 +22,9 @@ export const ModalLoginLayout = observer((props: IProps) => {
       {renderModalWrapper(
         <sc.ModalLoginContainer
           role="modal"
-          aria-label="ModalLoginContainer">
-          <sc.ContentColumn>
+          aria-label="ModalLoginContainer"
+          onSubmit={driver.onLoginButtonClicked}>
+          <sc.ContentColumn >
             <sc.ContentHeader>
               <sc.Title>
                 {t('modal-login.login-title')}
@@ -72,7 +73,7 @@ export const ModalLoginLayout = observer((props: IProps) => {
               </sc.LoginBtn>
             </Button>
             <sc.DividerContainer>
-              <sc.DivideText>OR</sc.DivideText>
+              <sc.DivideText>{t('modal-login.or-text')}</sc.DivideText>
             </sc.DividerContainer>
             <Button
               driver={{
@@ -89,7 +90,7 @@ export const ModalLoginLayout = observer((props: IProps) => {
                 margin: '10px 0 0 0',
                 bgColor: seWhite,
                 color: seDarkGunmetal,
-                borderColor: seSpanishGray
+                borderColor: seSpanishGray,
               }}>
               <sc.LoginBtnContent>
                 <FcGoogle size={20} />

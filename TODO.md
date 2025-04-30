@@ -4,6 +4,8 @@
 - investigate unit testing (done)
 - handle testing for modal login slice (doing)
 
+- handle recieve exceptions to show error lable for user
+
 - investigate first Desktop or Mobile
 - investigate visual testing
 - investigate feature flaging presenter

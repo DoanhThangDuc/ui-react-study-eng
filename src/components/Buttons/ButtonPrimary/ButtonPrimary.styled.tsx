@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { seWhite, seBlueYonder } from '../../../shared/colors';
 
 export namespace sc {
-  export const BtnContainer = styled.div<{
+  export const BtnContainer = styled.button<{
     width?: string;
     height?: string;
     color?: string;

@@ -39,13 +39,14 @@ export const  NavBar = () => {
             </sc.NavigatorItem>
           </sc.Navigators>
           <sc.ButtonsContainer
-            aria-label="Login-button"
             role="button"
             onClick={presenter.onOpenModal}>
-            <sc.LoginBtn >
+            <sc.LoginBtn
+              aria-label='ModalLoginLayout-LoginBtn'>
               {t('login-btn')}
             </sc.LoginBtn>
-            <sc.StartLearningBtn>
+            <sc.StartLearningBtn
+              aria-label='ModalLoginLayout-StartLearningBtn'>
               {t('start-btn')}
             </sc.StartLearningBtn>
           </sc.ButtonsContainer>

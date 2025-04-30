@@ -32,6 +32,7 @@ export type FontWeight =
 export interface ButtonDriver {
   readonly type: ButtonType;
   readonly icon?: string;
+  readonly ariaLable?: string
   readonly round?: boolean;
   readonly height?: string;
   readonly width?: string;
@@ -79,5 +80,4 @@ export function Button(props: IProps) {
       {renderButton(<>{children}</>)}
     </sc.Container>
   );
-
 }

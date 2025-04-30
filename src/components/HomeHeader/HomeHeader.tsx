@@ -16,7 +16,8 @@ export function HomeHeader() {
           </sc.HeaderTitle>
         </sc.HeaderTitleContainer>
         <sc.JoinBtn
-          onClick={() => {}}>{t('join-btn')}</sc.JoinBtn>
+          aria-label='HomeHeader-JoinBtn'
+          role='button'>{t('join-btn')}</sc.JoinBtn>
       </sc.HeaderContainer>
     </sc.ContentContainer>
   );

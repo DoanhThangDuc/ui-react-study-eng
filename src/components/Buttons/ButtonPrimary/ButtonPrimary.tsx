@@ -10,6 +10,8 @@ export function ButtonPrimary(props: IProps) {
 
   return (
     <sc.BtnContainer
+      aria-label={driver.ariaLable}
+      role='button'
       height={driver.height}
       width={driver.width}
       color={driver.color}

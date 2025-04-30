@@ -23,7 +23,7 @@ export namespace sc {
     z-index: 1;
   `;
 
-  export const ModalLoginContainer = styled.div`
+  export const ModalLoginContainer = styled.form`
     position: relative;
     z-index: 2; 
     display: flex;
