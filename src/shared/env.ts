@@ -1,9 +1,9 @@
 import { isBrowser } from './helpers/isBrowser';
-import { SeSessionStorage } from './helpers/SESessionStorage';
+import { SeLocalStorage } from './helpers/SELocalStorage';
 
 export const getAPIBaseUrl = (): string => {
-  if (isBrowser() && SeSessionStorage.getItem('NEXT_PUBLIC_BACKEND_BASE_URL')) {
-    return `${SeSessionStorage.getItem('NEXT_PUBLIC_BACKEND_BASE_URL')}`;
+  if (isBrowser() && SeLocalStorage.getItem('NEXT_PUBLIC_BACKEND_BASE_URL')) {
+    return `${SeLocalStorage.getItem('NEXT_PUBLIC_BACKEND_BASE_URL')}`;
   }
 
   return process.env.NEXT_PUBLIC_BACKEND_BASE_URL || '';

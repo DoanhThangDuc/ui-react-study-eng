@@ -114,13 +114,13 @@ describe('ModalLoginPresenter.test.tsx', () => {
       expect(presenter.isLoginButtonDisabled).toBeTruthy();
 
       // arrange spy on sign api
-      jest.spyOn(presenter.rootPresenter.userSesstionApi, 'signIn');
+      jest.spyOn(presenter.rootPresenter.userSessionApi, 'signIn');
 
       // act click on login button
       presenter.onLoginButtonClicked();
 
       // assert
-      expect(presenter.rootPresenter.userSesstionApi.signIn).not.toHaveBeenCalled();
+      expect(presenter.rootPresenter.userSessionApi.signIn).not.toHaveBeenCalled();
     });
     it('should display user not found label when user sign in with not found email address', async () => {});
     it('should display password is incorrect label when user sign in with incorrect password', async () => {});
@@ -142,7 +142,7 @@ describe('ModalLoginPresenter.test.tsx', () => {
         administrator: false,
         enabled: true
       };
-      jest.spyOn(rootPresenter.userSesstionApi, 'signIn').mockResolvedValue({
+      jest.spyOn(rootPresenter.userSessionApi, 'signIn').mockResolvedValue({
         data: user
       });
 

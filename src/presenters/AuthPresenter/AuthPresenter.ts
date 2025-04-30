@@ -1,6 +1,6 @@
 import { action, computed, flow } from 'mobx';
 import { RootPresenter } from '../RootPresenter';
-import { SignInPayload } from '../../shared/apis/UserSesstionApi/UserSesstionApi';
+import { SignInPayload } from '../../shared/apis/UserSessionApi/UserSessionApi';
 import { toFlowGeneratorFunction } from 'to-flow-generator-function';
 
 export enum UserSignInError {
@@ -57,7 +57,21 @@ export class AuthPresenter implements User {
 
   @action.bound signIn = async (payload: SignInPayload) => {
     try {
-      const userResponse = await this.rootPresenter.userSesstionApi.signIn(payload);
+      const userResponse = await this.rootPresenter.userSessionApi.signIn(payload);
+
+      if(!userResponse) {
+        throw userResponse;
+      };
+
+      this.rootPresenter.authPresenter.setUser(userResponse.data);
+    } catch(error) {
+      throw error;
+    }
+  };
+
+  @action.bound getMe = async () => {
+    try {
+      const userResponse = await this.rootPresenter.userSessionApi.getMe();
 
       if(!userResponse) {
         throw userResponse;

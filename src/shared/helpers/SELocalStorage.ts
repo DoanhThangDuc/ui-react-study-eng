@@ -1,4 +1,6 @@
-export class SESessionStorage implements Storage {
+import { isBrowser } from './isBrowser';
+
+export class SELocalStorage implements Storage {
   private storage: { [key: string]: string } = {};
 
   constructor() {}
@@ -25,4 +27,4 @@ export class SESessionStorage implements Storage {
     return Object.keys(this.storage).length;
   }
 }
-export const SeSessionStorage =  new SESessionStorage();
+export const SeLocalStorage =  isBrowser() ? window.localStorage : new SELocalStorage();

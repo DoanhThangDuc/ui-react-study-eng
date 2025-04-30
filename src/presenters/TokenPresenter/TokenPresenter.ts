@@ -1,6 +1,6 @@
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '../../shared/constants';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../shared/constants';
 import { isBrowser } from '../../shared/helpers/isBrowser';
-import { SeSessionStorage } from '../../shared/helpers/SESessionStorage';
+import { SeLocalStorage } from '../../shared/helpers/SELocalStorage';
 import { RootPresenter } from '../RootPresenter';
 
 export class TokenPresenter {
@@ -8,7 +8,7 @@ export class TokenPresenter {
 
   public getAccessToken(): string {
     if(isBrowser()) {
-      return SeSessionStorage.getItem(ACCESS_TOKEN_KEY) ||'';
+      return SeLocalStorage.getItem(ACCESS_TOKEN) ||'';
     }
 
     return '';
@@ -16,7 +16,7 @@ export class TokenPresenter {
 
   public getRefreshToken(): string {
     if(isBrowser()) {
-      return SeSessionStorage.getItem(REFRESH_TOKEN_KEY) || '';
+      return SeLocalStorage.getItem(REFRESH_TOKEN) || '';
     }
 
     return '';
@@ -24,13 +24,13 @@ export class TokenPresenter {
 
   public setAccessToken(token: string): void {
     if(isBrowser()) {
-      SeSessionStorage.setItem(ACCESS_TOKEN_KEY, token);
+      SeLocalStorage.setItem(ACCESS_TOKEN, token);
     }
   }
 
   public setRefreshToken(token: string): void {
     if(isBrowser()) {
-      SeSessionStorage.setItem(REFRESH_TOKEN_KEY, token);
+      SeLocalStorage.setItem(REFRESH_TOKEN, token);
     }
   }
 

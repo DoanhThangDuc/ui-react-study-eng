@@ -10,6 +10,7 @@ export const PresenterProvider = ({ children }: { children: React.ReactNode }) =
   useEffect(() => {
 
   }, []);
+
   return (
     <PresenterContext.Provider value={rootPresenter}>{children}</PresenterContext.Provider>
   );

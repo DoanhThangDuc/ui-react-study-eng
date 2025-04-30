@@ -3,6 +3,7 @@ import { useTranslation } from '../../../node_modules/react-i18next';
 import { sc } from './NavBar.styled';
 
 export interface NavBarDriver {
+  isLoggedInUser: boolean
   onOpenModal: () => void
 }
 interface NavBarProps {

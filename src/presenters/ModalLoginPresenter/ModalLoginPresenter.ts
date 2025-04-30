@@ -3,9 +3,9 @@ import { getEmailError } from '../../shared/helpers/getEmailError';
 import { getPasswordError } from '../../shared/helpers/getPasswordError';
 import { RootPresenter } from '../RootPresenter';
 import { ModalLoginDriver } from '../../components/Modal/ModalLogin/ModalLogin';
-import hashPassword from '../../shared/helpers/hashPassword';
-import { SignInPayload } from '../../shared/apis/UserSesstionApi/UserSesstionApi';
+import { SignInPayload } from '../../shared/apis/UserSessionApi/UserSessionApi';
 import { UserSignInError } from '../AuthPresenter/AuthPresenter';
+import hashPassword from '../../shared/helpers/hashPassword';
 
 export class ModalLoginPresenter implements ModalLoginDriver {
   @observable isLoading = false;
