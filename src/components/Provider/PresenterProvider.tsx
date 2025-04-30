@@ -8,7 +8,9 @@ const PresenterContext = createContext(rootPresenter);
 export const PresenterProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
-
+    (async () => {
+      await rootPresenter.initLoginUser();
+    })();
   }, []);
 
   return (

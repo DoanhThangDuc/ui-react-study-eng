@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { seLust, seRickBlack, seSpanishGray, seWhite } from '../../shared/colors';
+import { seLust, seRed, seRickBlack, seSpanishGray, seWhite } from '../../shared/colors';
+import roseImage from './rose.jpeg';
 
 export namespace sc {
   export const Container = styled.div`
@@ -79,6 +80,47 @@ export namespace sc {
   export const ButtonsContainer = styled.div`
     display: flex;
     gap: 10px;
+    width: 240px;
+  `;
+  export const UserContainer = styled.div`
+    display: flex;
+    gap: 10px;
+    width: 240px;
+    height: 40px;
+    position: relative;
+  `;
+  export const UserAvatar = styled.div<{ imageUrl?: string }>`
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* background-image: url(${(props) => props.imageUrl}); */
+    background-image: url(${roseImage.src});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* position: absolute; */
+    /* right: 0; */
+  `;
+
+export const LogoutBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 40px;
+  min-width: 80px;
+  padding: 0 10px;
+
+  border: 1px solid ${seRed};
+  border-radius: 24px;
+
+  color: ${seRed};
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px, rgba(0, 0, 0, 0.1) 0px 2px 3px 0px;
+    opacity: 0.7;
+  }
   `;
   export const LoginBtn = styled.div`
     display: flex;

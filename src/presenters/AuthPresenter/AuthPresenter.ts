@@ -1,7 +1,6 @@
-import { action, computed, flow } from 'mobx';
+import { action, computed, makeAutoObservable } from 'mobx';
 import { RootPresenter } from '../RootPresenter';
 import { SignInPayload } from '../../shared/apis/UserSessionApi/UserSessionApi';
-import { toFlowGeneratorFunction } from 'to-flow-generator-function';
 
 export enum UserSignInError {
   InvalidCredentials = 'InvalidCredentials',
@@ -21,6 +20,7 @@ export interface User {
 export class AuthPresenter implements User {
   user: User | null = null;
   constructor(private rootPresenter: RootPresenter) {
+    makeAutoObservable(this);
   }
 
   @computed get id(): string {
@@ -53,6 +53,12 @@ export class AuthPresenter implements User {
 
   @action.bound setUser(user: User) {
     this.user = user;
+  }
+
+  @action.bound onLogUserOut() {
+    this.user = null;
+    this.rootPresenter.tokenPresenter.removeAccessToken();
+    this.rootPresenter.tokenPresenter.removeRefreshToken();
   }
 
   @action.bound signIn = async (payload: SignInPayload) => {

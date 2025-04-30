@@ -2,7 +2,7 @@ import { useTranslation } from '../../../node_modules/react-i18next';
 import { sc } from './HomeHeader.styled';
 
 interface HomeHeadersDriver {
-  onOpenModal: () => void
+  onOpenLoginModal: () => void
 }
 interface HomeHeadersProps{
   driver: HomeHeadersDriver
@@ -25,7 +25,7 @@ export function HomeHeader(props: HomeHeadersProps) {
         <sc.JoinBtn
           aria-label='HomeHeader-JoinBtn'
           role='button'
-          onClick={driver.onOpenModal}>{t('join-btn')}</sc.JoinBtn>
+          onClick={driver.onOpenLoginModal}>{t('join-btn')}</sc.JoinBtn>
       </sc.HeaderContainer>
     </sc.ContentContainer>
   );

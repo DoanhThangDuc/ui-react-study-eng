@@ -11,12 +11,10 @@ export class RootPresenter {
   tokenPresenter: TokenPresenter;
   userSessionApi: UserSessionApi;
   tokenInterceptorPresenter: TokenInterceptorPresenter;
-  tokenService: TokenPresenter;
   constructor() {
     this.modalPresenter = new ModalPresenter();
-    this.tokenPresenter = new TokenPresenter(this);
+    this.tokenPresenter = new TokenPresenter();
     this.userSessionApi = new UserSessionApi(this);
-    this.tokenService = new TokenPresenter(this);
     this.tokenInterceptorPresenter = new TokenInterceptorPresenter(this);
     this.authPresenter = new AuthPresenter(this);
 

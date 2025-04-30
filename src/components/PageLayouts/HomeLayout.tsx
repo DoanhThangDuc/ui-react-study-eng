@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import { sc } from './HomeLayout.styled';
 
 export interface HomeLayoutProps {
@@ -7,7 +8,7 @@ export interface HomeLayoutProps {
   renderFooter: ()=> React.ReactNode
   renderModal: ()=> React.ReactNode
 }
-export function HomeLayout(props: HomeLayoutProps) {
+export const HomeLayout = observer((props: HomeLayoutProps) => {
   const { renderNavBar, renderHeader, renderBody, renderFooter, renderModal } = props;
 
   return (
@@ -21,4 +22,4 @@ export function HomeLayout(props: HomeLayoutProps) {
       {renderFooter()}
     </sc.HomeLayoutContainer>
   );
-}
+});

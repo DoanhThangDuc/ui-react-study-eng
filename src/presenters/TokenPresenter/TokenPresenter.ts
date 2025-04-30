@@ -1,10 +1,12 @@
+import { makeAutoObservable } from 'mobx';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../shared/constants';
 import { isBrowser } from '../../shared/helpers/isBrowser';
 import { SeLocalStorage } from '../../shared/helpers/SELocalStorage';
-import { RootPresenter } from '../RootPresenter';
 
 export class TokenPresenter {
-  constructor(private rootPresenter: RootPresenter) {}
+  constructor() {
+    makeAutoObservable(this);
+  }
 
   public getAccessToken(): string {
     if(isBrowser()) {
@@ -31,6 +33,18 @@ export class TokenPresenter {
   public setRefreshToken(token: string): void {
     if(isBrowser()) {
       SeLocalStorage.setItem(REFRESH_TOKEN, token);
+    }
+  }
+
+  public removeAccessToken() {
+    if(isBrowser()) {
+      SeLocalStorage.removeItem(ACCESS_TOKEN);
+    }
+  }
+
+  public removeRefreshToken() {
+    if(isBrowser()) {
+      SeLocalStorage.removeItem(REFRESH_TOKEN);
     }
   }
 

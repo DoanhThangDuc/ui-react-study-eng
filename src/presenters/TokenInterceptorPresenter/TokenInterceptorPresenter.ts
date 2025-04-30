@@ -1,9 +1,12 @@
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { RootPresenter } from '../RootPresenter';
+import { makeAutoObservable } from 'mobx';
 export class TokenInterceptorPresenter {
   constructor(
     private rootStore: RootPresenter,
-  ) {}
+  ) {
+    makeAutoObservable(this);
+  }
   public async call<T = any, R = AxiosResponse<T>>(
     request: AxiosRequestConfig,
   ): Promise<any> {
@@ -15,7 +18,7 @@ export class TokenInterceptorPresenter {
         respHeaders[key] = value.toString();
       }
 
-      this.rootStore.tokenService.setTokensFromResponse({ headers: respHeaders });
+      this.rootStore.tokenPresenter.setTokensFromResponse({ headers: respHeaders });
 
       return response;
     } catch(error) {

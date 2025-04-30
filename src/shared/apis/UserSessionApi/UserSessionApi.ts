@@ -1,3 +1,4 @@
+import { makeAutoObservable } from 'mobx';
 import { User } from '../../../presenters/AuthPresenter/AuthPresenter';
 import { RootPresenter } from '../../../presenters/RootPresenter';
 import { getAPIBaseUrl } from '../../env';
@@ -11,7 +12,9 @@ export interface IUserSessionApi {
 }
 
 export class UserSessionApi implements IUserSessionApi {
-  constructor(private rootPresenter: RootPresenter) {}
+  constructor(private rootPresenter: RootPresenter) {
+    makeAutoObservable(this);
+  }
 
   async signIn(data: SignInPayload) {
     try {

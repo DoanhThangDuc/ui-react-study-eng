@@ -10,7 +10,10 @@ export class NavBarPresenter implements NavBarDriver {
   @computed get isLoggedInUser() {
     return !!this.rootPresenter.authPresenter.id;
   }
-  @action.bound onOpenModal = () => {
+  @action.bound onOpenLoginModal = () => {
     this.rootPresenter.modalPresenter.onOpenModal();
+  };
+  @action.bound onLogUserOut = () => {
+    this.rootPresenter.authPresenter.onLogUserOut();
   };
 }
