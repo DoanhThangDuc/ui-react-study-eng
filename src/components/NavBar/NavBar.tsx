@@ -1,16 +1,16 @@
 'use client';
 import { useTranslation } from '../../../node_modules/react-i18next';
 import { sc } from './NavBar.styled';
-import { useRootPresenter } from '../Provider/PresenterProvider';
-import { useState } from 'react';
-import { NavBarPresenter } from '../../presenters/NavBarPresenter/NavBarPresenter';
 
 export interface NavBarDriver {
+  onOpenModal: () => void
 }
-export const  NavBar = () => {
+interface NavBarProps {
+  driver: NavBarDriver
+}
+export const  NavBar = (props: NavBarProps) => {
   const { t } = useTranslation('navbar');
-  const rootPresenter = useRootPresenter();
-  const [ presenter ] = useState(() => new NavBarPresenter(rootPresenter));
+  const { driver } = props;
 
   return (
     <sc.Container
@@ -40,7 +40,7 @@ export const  NavBar = () => {
           </sc.Navigators>
           <sc.ButtonsContainer
             role="button"
-            onClick={presenter.onOpenModal}>
+            onClick={driver.onOpenModal}>
             <sc.LoginBtn
               aria-label='ModalLoginLayout-LoginBtn'>
               {t('login-btn')}

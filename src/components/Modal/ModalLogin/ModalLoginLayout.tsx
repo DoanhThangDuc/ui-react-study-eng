@@ -23,7 +23,10 @@ export const ModalLoginLayout = observer((props: IProps) => {
         <sc.ModalLoginContainer
           role="modal"
           aria-label="ModalLoginContainer"
-          onSubmit={driver.onLoginButtonClicked}>
+          onSubmit={(e) => {
+            e.preventDefault();
+            driver.onLoginButtonClicked();
+          }}>
           <sc.ContentColumn >
             <sc.ContentHeader>
               <sc.Title>

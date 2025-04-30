@@ -122,10 +122,41 @@ describe('ModalLoginPresenter.test.tsx', () => {
       // assert
       expect(presenter.rootPresenter.userSesstionApi.signIn).not.toHaveBeenCalled();
     });
+    it('should display user not found label when user sign in with not found email address', async () => {});
+    it('should display password is incorrect label when user sign in with incorrect password', async () => {});
   });
 
   describe('success', () => {
+    it('should set user token fields correctly when user successfully log in', async () => {
+      // arrange presenters
+      const rootPresenter = new RootPresenter();
+      const presenter = new ModalLoginPresenter(rootPresenter);
 
+      // arrange mock api call
+      const user = {
+        id: 'c8b890a5-3923-42ba-ae8f-8b89d193f117',
+        emailAddress: 'duc.doanh@urbn8.com',
+        firstName: 'doanh',
+        lastName: 'duc',
+        emailAddressVerified: false,
+        administrator: false,
+        enabled: true
+      };
+      jest.spyOn(rootPresenter.userSesstionApi, 'signIn').mockResolvedValue({
+        data: user
+      });
+
+      // arrange fields for login form
+      presenter.onEmailChange('example@example.com');
+      presenter.onPasswordChange('ABC123!!@');
+
+      // act - clicking on login button
+      await presenter.onLoginButtonClicked();
+
+      // assert - user are set correctly
+      expect(rootPresenter.authPresenter?.user).toMatchObject({
+        ...user
+      });
+    });
   });
 });
-// test

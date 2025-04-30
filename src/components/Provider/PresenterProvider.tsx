@@ -1,13 +1,19 @@
 'use client';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 import { RootPresenter } from '../../presenters/RootPresenter';
 
 const rootPresenter = new RootPresenter();
 const PresenterContext = createContext(rootPresenter);
 
-export const PresenterProvider = ({ children }: { children: React.ReactNode }) => (
-  <PresenterContext.Provider value={rootPresenter}>{children}</PresenterContext.Provider>
-);
+export const PresenterProvider = ({ children }: { children: React.ReactNode }) => {
+
+  useEffect(() => {
+
+  }, []);
+  return (
+    <PresenterContext.Provider value={rootPresenter}>{children}</PresenterContext.Provider>
+  );
+};
 
 export const useRootPresenter = () => {
   const presenter = useContext(PresenterContext);

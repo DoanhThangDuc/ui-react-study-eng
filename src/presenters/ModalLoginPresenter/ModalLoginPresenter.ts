@@ -3,6 +3,9 @@ import { getEmailError } from '../../shared/helpers/getEmailError';
 import { getPasswordError } from '../../shared/helpers/getPasswordError';
 import { RootPresenter } from '../RootPresenter';
 import { ModalLoginDriver } from '../../components/Modal/ModalLogin/ModalLogin';
+import hashPassword from '../../shared/helpers/hashPassword';
+import { SignInPayload } from '../../shared/apis/UserSesstionApi/UserSesstionApi';
+import { UserSignInError } from '../AuthPresenter/AuthPresenter';
 
 export class ModalLoginPresenter implements ModalLoginDriver {
   @observable isLoading = false;
@@ -53,12 +56,26 @@ export class ModalLoginPresenter implements ModalLoginDriver {
   @action.bound onLoginButtonClicked = async () => {
     if(this.isLoginButtonDisabled || this.isLoading) return;
 
-    const payload = {
-      emailAddress: 'duc.doanh@urbn8.com',
-      password: '6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090'
-    };
+    try {
+      // const payload: SignInPayload = {
+      //   emailAddress: 'duc.doanh@urbn8.com',
+      //   password: '6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090'
+      // };
 
-    const userResponse = await this.rootPresenter.userSesstionApi.signIn(payload);
-    console.log('userResponse :>> ', userResponse);
-  };
-}
+      const payload: SignInPayload = {
+        emailAddress: this.emailAddress,
+        password: hashPassword(this.password, this.emailAddress)
+      };
+
+      await this.rootPresenter.authPresenter.signIn(payload);
+      this.rootPresenter.modalPresenter.onCloseModal();
+    } catch (error) {
+      if((error as any).type ===UserSignInError.UserNotFoundError) {
+        this.emailErrorMessage = (error as any).debugMessage;
+      }
+
+      if((error as any).type ===UserSignInError.InvalidCredentials) {
+        this.passwordErrorMessage = (error as any).debugMessage;
+      }
+    }
+  };}

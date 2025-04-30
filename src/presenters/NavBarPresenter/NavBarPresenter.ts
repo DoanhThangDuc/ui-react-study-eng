@@ -1,8 +1,10 @@
 import { action, makeAutoObservable } from 'mobx';
 import { RootPresenter } from '../RootPresenter';
+import { NavBarDriver } from '../../components/NavBar/NavBar';
 
-export class NavBarPresenter {
-  constructor(private rootPresenter: RootPresenter) {
+export class NavBarPresenter implements NavBarDriver {
+  constructor(
+    private rootPresenter: RootPresenter) {
     makeAutoObservable(this);
   }
 
